@@ -1,0 +1,146 @@
+export const subscriptionPlans = {        //
+    sellers: [
+        {
+            tier: "Starter",
+            price: "Free",
+            value: "0",
+            currency: "KES",
+            period: "/month",
+            features: [
+                "Self-managed listings (limit: 10)",
+                "30-day ad duration",
+                "Basic Seller account manager",
+                "Manage Customers Directly",
+                "Basic Analytics dashboard",              
+                "Basic listings and promotions",
+                "SEO optimization",
+                "Whatsapp Chat Integration",
+                "Social media sharing support",
+            ],
+            bgColor: "bg-green-100",
+            btnColor: "bg-green-500 hover:bg-green-600",
+            btnText: "Become a Seller",
+            isAdminManaged: false,
+            redirectPath: "/become-seller",
+            paymentRequired: false,
+            subscriptionDetails: {
+                type: "free",
+                managedBy: "seller",
+                autoRenewal: false
+            }
+        },
+        {
+            tier: "Basic",
+            price: "KSH 2,480",
+            value: "2480",
+            currency: "KES",
+            period: "/month",
+            features: [
+                "Self-managed listings (limit: 25)",
+                "30-day ad duration",
+                "Basic Seller account manager",
+                "Manage Customers Directly",
+                "Basic Analytics dashboard",
+                "Basic listings and promotions",
+                "SEO optimization",
+                "Whatsapp Chat Integration",
+                "Social media sharing support",
+            ],
+            bgColor: "bg-blue-100",
+            btnColor: "bg-blue-500 hover:bg-blue-600",
+            btnText: "Start Selling",
+            isAdminManaged: false,
+            redirectPath: "/become-seller",
+            paymentRequired: true,
+            subscriptionDetails: {
+                type: "paid",
+                managedBy: "seller",
+                autoRenewal: true
+            }
+        },
+        {
+            tier: "Growth",
+            price: "KSH 4,000",
+            value: "4000",
+            currency: "KES",
+            period: "/month",
+            features: [
+                "Self-managed listings (limit: 50)",
+                "30-day ad duration",
+                "Basic Seller account manager",
+                "Manage Customers Directly",
+                "Basic Analytics dashboard",
+                "Basic listings and promotions",
+                "SEO optimization",
+                "Whatsapp Chat Integration",
+                "Social media sharing support",
+            ],
+            bgColor: "bg-yellow-100",
+            btnColor: "bg-yellow-500 hover:bg-yellow-600",
+            btnText: "Start Selling",
+            isAdminManaged: false,
+            redirectPath: "/become-seller",
+            paymentRequired: true,
+            subscriptionDetails: {
+                type: "paid",
+                managedBy: "seller",
+                autoRenewal: true
+            }
+        },
+        {
+            tier: "Enterprise",
+            price: "KSH 8,000",
+            value: "8000",
+            currency: "KES",
+            period: "/month",
+            features: [
+                "Self-managed listings (limit: 100)",
+                "Top-banner homepage placement",
+                "Priority email and phone support",
+                "Custom email marketing campaigns",
+                "Dedicated Seller account manager",
+                "Custom dashboard",
+                "API access for inventory sync",
+                "Advanced performance insights",
+            ],
+            bgColor: "bg-orange-100",
+            btnColor: "bg-orange-500 hover:bg-orange-600",
+            btnText: "Contact Sales",
+            isAdminManaged: false,
+            redirectPath: "/become-seller",
+            paymentRequired: true,
+            subscriptionDetails: {
+                type: "paid",
+                managedBy: "seller",
+                autoRenewal: true
+            }
+        },
+        {
+            tier: "Custom",
+            price: "From KSH 12,000",
+            value: "12000",
+            currency: "KES",
+            period: "/month",
+            features: [
+                "Unlimited self-managed listings",
+                "Custom dashboard and performance reports",
+                "CRM and external API integrations",
+                "Tailored marketing and promotions",
+                "Dedicated success manager",
+                "Flexible contract & invoicing",
+            ],
+            bgColor: "bg-purple-100",
+            btnColor: "bg-purple-500 hover:bg-purple-600",
+            border: "border-2 border-purple-500",
+            btnText: "Contact Sales",
+            isAdminManaged: false,
+            redirectPath: "/become-seller",
+            paymentRequired: true,
+            subscriptionDetails: {
+                type: "custom",
+                managedBy: "admin",
+                autoRenewal: false
+            }
+        },
+    ],
+};

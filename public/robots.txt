@@ -1,0 +1,127 @@
+# robots.txt for diksxcars.co.ke - Car Marketplace
+# Comprehensive Sitemap and Crawling Configuration
+# Last updated: 2025-01-22
+
+# Sitemap Declarations
+# Ensure all sitemaps are discoverable and accessible
+# Only reference the sitemap index - it contains all child sitemaps
+Sitemap: https://www.diksxcars.co.ke/sitemap-index.xml
+
+# Global Crawler Policy
+# Allow crawling of key site sections while protecting sensitive areas
+User-agent: *
+Allow: /
+Allow: /vehicles/
+Allow: /accessories/
+Allow: /blogs/
+Allow: /support/
+Allow: /pricing/
+Allow: /ads.txt/
+
+# Restricted Areas - Prevent Crawling
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /auth/
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 10
+
+############################
+# Google rendering bots
+############################
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /blogs/
+
+# Specific Search Engine Configurations
+# Tailored rules for major search engine bots
+User-agent: Googlebot
+Allow: /accessories/
+Allow: /vehicles/
+Allow: /vehicle/
+Allow: /blogs/
+Allow: /sitemap-index.xml
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /accessories/
+Allow: /vehicles/
+Allow: /vehicle/
+Allow: /blogs/
+Allow: /sitemap-index.xml
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Crawl-delay: 10
+
+# Brave Browser Bot Configuration
+User-agent: Bravespider
+User-agent: Bravebot
+Allow: /accessories/
+Allow: /vehicle/
+Allow: /blogs/
+Allow: /sitemap-index.xml
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Crawl-delay: 15
+
+# Image and Media Crawler Permissions
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /accessories/*/images/
+Allow: /vehicle/*/images/
+Allow: /sitemap-index.xml
+Disallow: /private/
+
+# Specialized Crawler Configurations
+User-agent: GoogleOther
+Allow: /sitemap-index.xml
+
+# Social Media and Analytics Crawlers
+User-agent: Googlebot-Analytics
+User-agent: Mediapartners-Google
+User-agent: facebookexternalhit
+User-agent: Twitterbot
+Allow: /
+Allow: /sitemap-index.xml
+
+# SEO and Monitoring Tool Crawlers
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+Allow: /
+Allow: /sitemap-index.xml
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+
+
+# Content Indexing Restrictions
+# Allow query parameters for search and filtering (important for SEO)
+Allow: /vehicles?*
+Allow: /accessories?*
+Allow: /search?*
+Allow: /blogs?*
+
+# Only block specific problematic query parameters
+Disallow: /*?ref=*
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Block unnecessary paths
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+
+# Optional: Webmaster Contact Information
+# Webmaster: webmaster@diksxcars.co.ke

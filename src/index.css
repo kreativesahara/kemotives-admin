@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ========================================
+   autoMarketplace Background Styles
+   Elegant whitish-grey vector pattern theme
+   ======================================== */
+
+/* Main wrapper - ensures full viewport coverage */
+.marketplace-bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Background container */
+.marketplace-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* SVG background */
+.marketplace-bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay for additional depth */
+.marketplace-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(248, 249, 250, 0.7) 25%,
+      rgba(241, 243, 245, 0.5) 50%,
+      rgba(248, 249, 250, 0.7) 75%,
+      rgba(255, 255, 255, 0.9) 100%);
+  pointer-events: none;
+}
+
+/* Content layer - sits above background */
+.marketplace-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Shape Animations - Subtle floating motion
+   ======================================== */
+
+/* Slow floating animations for large shapes */
+.shape-animate-1 {
+  animation: shapeFloat1 20s ease-in-out infinite;
+  transform-origin: top right;
+}
+
+.shape-animate-2 {
+  animation: shapeFloat2 25s ease-in-out infinite;
+  transform-origin: bottom left;
+}
+
+.shape-animate-3 {
+  animation: shapeFloat3 30s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.shape-animate-4 {
+  animation: shapeFloat4 35s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.shape-animate-5 {
+  animation: waveMotion 15s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.shape-animate-6 {
+  animation: shapeFloat1 22s ease-in-out infinite reverse;
+  transform-origin: center;
+}
+
+.shape-animate-7 {
+  animation: shapeFloat2 28s ease-in-out infinite reverse;
+  transform-origin: center;
+}
+
+.shape-animate-8 {
+  animation: shapeFloat3 18s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Floating small elements */
+.shape-float-1 {
+  animation: floatUp 8s ease-in-out infinite;
+}
+
+.shape-float-2 {
+  animation: floatUp 10s ease-in-out infinite 1s;
+}
+
+.shape-float-3 {
+  animation: floatUp 12s ease-in-out infinite 2s;
+}
+
+.shape-float-4 {
+  animation: floatUp 9s ease-in-out infinite 0.5s;
+}
+
+.shape-float-5 {
+  animation: floatUp 11s ease-in-out infinite 1.5s;
+}
+
+.shape-float-6 {
+  animation: floatUp 14s ease-in-out infinite 3s;
+}
+
+/* Rotating elements */
+.shape-rotate-1 {
+  animation: gentleRotate 20s linear infinite;
+  transform-origin: center;
+}
+
+.shape-rotate-2 {
+  animation: gentleRotate 25s linear infinite reverse;
+  transform-origin: center;
+}
+
+.shape-rotate-3 {
+  animation: gentleRotate 30s linear infinite;
+  transform-origin: center;
+}
+
+/* Line accent animations */
+.line-accent-1 {
+  animation: lineGlow 4s ease-in-out infinite;
+}
+
+.line-accent-2 {
+  animation: lineGlow 5s ease-in-out infinite 1s;
+}
+
+/* ========================================
+   Keyframe Definitions
+   ======================================== */
+
+@keyframes shapeFloat1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-10px, 15px) scale(1.02);
+  }
+}
+
+@keyframes shapeFloat2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(15px, -10px) scale(0.98);
+  }
+}
+
+@keyframes shapeFloat3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(8px, 8px) scale(1.03);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shapeFloat4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-12px, -8px) scale(0.97);
+    opacity: 0.9;
+  }
+}
+
+@keyframes waveMotion {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes floatUp {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes gentleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lineGlow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    stroke-width: 2;
+  }
+
+  50% {
+    opacity: 0.6;
+    stroke-width: 3;
+  }
+}
+
+/* ========================================
+   Responsive Styles
+   ======================================== */
+
+/* Tablet and smaller */
+@media (max-width: 1024px) {
+  .marketplace-bg-overlay {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(248, 249, 250, 0.8) 50%,
+        rgba(255, 255, 255, 0.95) 100%);
+  }
+
+  /* Reduce animation intensity on tablets */
+  .shape-animate-1,
+  .shape-animate-2,
+  .shape-animate-3,
+  .shape-animate-4 {
+    animation-duration: 40s;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .marketplace-bg-wrapper {
+    min-height: 100vh;
+  }
+
+  .marketplace-content {
+    min-height: 100vh;
+  }
+
+  .marketplace-bg-overlay {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(241, 243, 245, 0.85) 50%,
+        rgba(255, 255, 255, 0.97) 100%);
+  }
+
+  /* Slower animations on mobile for better performance */
+  .shape-animate-1,
+  .shape-animate-2,
+  .shape-animate-3,
+  .shape-animate-4,
+  .shape-animate-5,
+  .shape-animate-6,
+  .shape-animate-7,
+  .shape-animate-8 {
+    animation-duration: 50s;
+  }
+
+  .shape-float-1,
+  .shape-float-2,
+  .shape-float-3,
+  .shape-float-4,
+  .shape-float-5,
+  .shape-float-6 {
+    animation-duration: 20s;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .marketplace-bg-overlay {
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(248, 249, 250, 0.9) 50%,
+        rgba(255, 255, 255, 0.98) 100%);
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .shape-animate-1,
+  .shape-animate-2,
+  .shape-animate-3,
+  .shape-animate-4,
+  .shape-animate-5,
+  .shape-animate-6,
+  .shape-animate-7,
+  .shape-animate-8,
+  .shape-float-1,
+  .shape-float-2,
+  .shape-float-3,
+  .shape-float-4,
+  .shape-float-5,
+  .shape-float-6,
+  .shape-rotate-1,
+  .shape-rotate-2,
+  .shape-rotate-3,
+  .line-accent-1,
+  .line-accent-2 {
+    animation: none;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSlight 2s infinite;
+  }
+
+  @keyframes bounceSlight {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

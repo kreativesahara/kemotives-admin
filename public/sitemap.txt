@@ -1,0 +1,18 @@
+# Sitemap for diksxcars.co.ke - Car Marketplace
+# Last updated: 2024-07-22
+# Priority: 1.0 (highest) to 0.1 (lowest)
+# Changefreq: always, hourly, daily, weekly, monthly, yearly, never
+
+# Primary Pages
+https://www.diksxcars.co.ke/
+https://www.diksxcars.co.ke/register
+https://www.diksxcars.co.ke/login
+https://www.diksxcars.co.ke/vehicles
+https://www.diksxcars.co.ke/accessories
+https://www.diksxcars.co.ke/blogs
+https://www.diksxcars.co.ke/support
+
+
+# XML Sitemap Reference
+# For full details with priority and change frequency, see sitemap.xml
+

@@ -1,0 +1,80 @@
+# Cursor AI Rules for Frontend Sitemap Scripts
+
+## Critical Rules for Sitemap Generation
+
+### MANDATORY: Atomic File Writes
+- **NEVER use `fs.writeFileSync()` directly** on sitemap XML files
+- **ALWAYS use `atomicWriteFileSync()` helper** for all sitemap file writes
+- Pattern: Write to `.tmp` file first, then `fs.renameSync()` atomically
+- This prevents partial/corrupted sitemap files if write fails
+
+### MANDATORY: Array Reassignment After Pruning
+- **Declare arrays as `let`** (NOT `const`) when they need pruning: 
+  ```javascript
+  let [vehicles, blogPosts, accessories] = await Promise.all([...]);
+  let pages = discoverPages();
+  ```
+- **After pruning, use direct reassignment**:
+  ```javascript
+  vehicles = validVehicles;
+  pages = validPages;
+  ```
+- **NEVER use**: `vehicles.length = 0; vehicles.push(...validVehicles)` pattern
+
+### MANDATORY: Date Format (YYYY-MM-DD Only)
+- **ALWAYS use `formatDate()` function** for lastmod dates
+- **NEVER use `getCurrentDate()` directly** - it returns ISO format with time
+- Format MUST match: `^\d{4}-\d{2}-\d{2}$` (YYYY-MM-DD)
+- Validation WILL FAIL if dates include time/timezone
+
+### MANDATORY: Feature Normalization
+- **ALWAYS normalize features** before hashing: `normalizeFeatures(vehicle.features)`
+- Include normalized features in cache hash for consistency
+- Handles: JSON strings, comma-separated, arrays, null/undefined
+
+### MANDATORY: Image Namespace
+- **ALWAYS include** `xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"` in sitemaps with images
+- Use extraction functions: `extractVehicleImages()`, `extractAccessoryImages()`, `extractBlogImages()`
+- Limit to 10 images per URL (Google's limit)
+- Always provide fallback placeholder if no images
+
+### MANDATORY: Cache Cleanup
+- **ALWAYS clean de-listed items** from cache before generating
+- Use `cleanupDelistedItems()` to remove stale entries
+- Merge cleaned cache with updates: `{ ...finalCache, ...cacheUpdates }`
+
+### MANDATORY: Validation
+- **ALWAYS run validation** after generation (unless `--no-validate`)
+- Exit with code 1 if validation finds errors
+- Never deploy sitemaps that fail validation
+
+## Testing Checklist
+
+Before committing sitemap changes:
+- [ ] All file writes use `atomicWriteFileSync()`
+- [ ] Arrays declared as `let` if they need reassignment
+- [ ] All dates use `formatDate()` (YYYY-MM-DD format)
+- [ ] Features are normalized before hashing
+- [ ] Image namespace is included in sitemaps
+- [ ] Validation passes: `npm run validate-sitemaps`
+- [ ] No partial/corrupted files are created
+- [ ] Cache is properly cleaned and updated
+
+## Common Pitfalls to Avoid
+
+❌ **DON'T**: Use `const` for arrays that get pruned
+❌ **DON'T**: Use `getCurrentDate()` directly in sitemap entries
+❌ **DON'T**: Write files directly with `fs.writeFileSync()`
+❌ **DON'T**: Skip feature normalization in hash generation
+❌ **DON'T**: Include dates with time/timezone components
+❌ **DON'T**: Forget to clean de-listed items from cache
+❌ **DON'T**: Skip validation in production
+
+✅ **DO**: Use `let` for arrays that need reassignment
+✅ **DO**: Use `formatDate()` for all lastmod dates
+✅ **DO**: Use `atomicWriteFileSync()` for all file writes
+✅ **DO**: Normalize features before hashing
+✅ **DO**: Always include image namespace when images present
+✅ **DO**: Clean cache before generating sitemaps
+✅ **DO**: Run validation after generation
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <url>
+    <loc>https://www.diksxcars.co.ke/blogs/buying-a-locally-used-car-in-kenya-a-complete-guide-for-smart-buyers</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dyp6hud28/image/upload/v1769510974/diksx/blogs/zoey5nxavvts25aqn1vq.jpg</image:loc>
+      <image:caption>Buying a Locally Used Car in Kenya: A Complete Guide for Smart Buyers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.diksxcars.co.ke/blogs/electric-vehicles-are-here-so-why-are-we-not-buying-them</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dyp6hud28/image/upload/v1769550120/diksx/blogs/xv7pzf9av7ezwclxvjwe.png</image:loc>
+      <image:caption>“Electric Vehicles Are Here. So, Why Are We Not Buying Them?”</image:caption>
+    </image:image>
+  </url>
+</urlset>
