@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-route
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import App from './App/App.jsx';
+
 import Admin from './App/admin/Admin.jsx';
 
 import Login from './App/login.jsx';
@@ -97,30 +97,28 @@ const AppRoutes = () => (
       
 
       {/* Nested Routes for Authorization */}
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Seller, ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="dashboard" element={<App />} />
+      
+      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+        <Route path="/" element={<Admin />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="Admin" element={<Admin />} />
+        <Route path="/users" element={<Users />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/users" element={<Users />} />
+        <Route path="/products" element={<Products />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/products" element={<Products />} />
+        <Route path="/subscriptions" element={<Subscriptions />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/subscriptions" element={<Subscriptions />} />
+        <Route path="/sellers" element={<Sellers />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/sellers" element={<Sellers />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/reports" element={<Reports />} />
+        <Route path="/reports" element={<Reports />} />
       </Route>
   
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="admin/kyc" element={<KycVerification />} />
+        <Route path="/kyc" element={<KycVerification />} />
       </Route>
     </Route>
   </Routes>
