@@ -1,10 +1,10 @@
 {
-  "name": "client",
+  "name": "admin",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "client": "vite",
+    "admin": "vite",
     "build": "vite build && node scripts/generate-sitemaps.cjs all",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

@@ -17,10 +17,8 @@ import BecomeSeller from './components/forms/becomeSeller.jsx';
 import UpdateProduct from './components/forms/updateProduct.jsx';
 import KnowYourCustomer from './components/forms/knowYourCustomer.jsx';
 import PaymentCallback from './components/payment/PaymentCallback.jsx';
-import BlogList from './components/cards/BlogList.jsx';
-import BlogPost from './pages/BlogPost.jsx';
-import AddBlogPost from './components/forms/addBlogPost.jsx';
-import EditBlogPost from './components/forms/editBlogPost.jsx';
+
+
 import AccessoriesItemPage from './accessoriesItemPage.jsx';
 import ItemPage from './itemPage.jsx';
 import UpdateAccessory from './components/forms/UpdateAccessory.jsx';
@@ -112,16 +110,11 @@ const AppRoutes = () => (
       <Route path="vehicle/:productId" element={<ItemPage />} />
       <Route path="accessory/:accessoryId" element={<AccessoriesItemPage />} />
       <Route path="seller/:sellerSlug" element={<SellerPage />} />
-      <Route path="blogs" element={<BlogList />} />
-      <Route path="blog/:slug" element={<BlogPost />} />
+
+     
 
       {/* Blog management routes - protected */}
-      <Route element={<RequireAuth allowedRoles={[ROLES.Seller, ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="blog/uploadpost" element={<AddBlogPost />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ROLES.Seller, ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="blog/editpost/:id" element={<EditBlogPost />} />
-      </Route>
+    
       <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
         <Route path="accessories/upload" element={<AddAccessories />} />
       </Route>
