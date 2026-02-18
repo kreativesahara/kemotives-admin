@@ -6,19 +6,15 @@ const Sidebar = React.memo(({ isAdmin, handleLogout }) => {
 
     const navItems = useMemo(() => {
         const baseItems = [
-            { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', path: '/admin' },
+            { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', path: '/' },
             { id: 'users', label: 'User Management', icon: 'person', path: '/users' },
             { id: 'products', label: 'Product Management', icon: 'inventory_2', path: '/products' },
             { id: 'subscriptions', label: 'Subscription Management', icon: 'subscriptions', path: '/subscriptions' },
             { id: 'sellers', label: 'Seller Management', icon: 'store', path: '/sellers' },
             { id: 'kyc', label: 'KYC Verification', icon: 'verified_user', path: '/kyc' },
-            { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/reports' }
-        ];
-
-        if (isAdmin) {
-            baseItems.push({ id: 'settings', label: 'System Settings', icon: 'settings', path: '/settings' });
-        }
-
+            { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/reports' },
+            { id: 'settings', label: 'System Settings', icon: 'settings', path: '/settings' }
+        ];      
         return baseItems;
     }, [isAdmin]);
 
