@@ -28,9 +28,7 @@ import NotFound from './notFound.jsx';
 import SellerPage from './pages/SellerPage.jsx';
 
 import Product from './productPage.jsx';
-import Support from './pages/support.jsx';
 import Accessories from './accessories.jsx';
-
 import Users from './App/admin/pages/users.jsx';
 import Products from './App/admin/pages/products.jsx';
 import Sellers from './App/admin/pages/sellers.jsx';
@@ -103,16 +101,13 @@ const AppRoutes = () => (
     <Route element={<PersistLogin />}>
       <Route path="home" element={< Home />} />
       <Route path="pricing" element={<Pricing />} />
-      <Route path="support" element={<Support />} />
+      {/* <Route path="support" element={<Support />} /> */}
       <Route path="vehicles" element={<Product />} />
       <Route path="accessories" element={<Accessories />} />
       {/* <Route path="accessory/:slug" element={<AccessoriesItemPage />} /> */}
       <Route path="vehicle/:productId" element={<ItemPage />} />
       <Route path="accessory/:accessoryId" element={<AccessoriesItemPage />} />
-      <Route path="seller/:sellerSlug" element={<SellerPage />} />
-
-     
-
+      <Route path="seller/:sellerSlug" element={<SellerPage />} />   
       {/* Blog management routes - protected */}
     
       <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
