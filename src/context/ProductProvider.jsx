@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useMemo, useCallback } from "react";
 import { axiosPrivate } from "../api/axios";
-import carCategories from "../data/carCategories";
-import { dummyCarData } from "../data/dummyCarData";
+
+
 
 const ProductContext = createContext();
 

@@ -19,16 +19,11 @@ import KnowYourCustomer from './components/forms/knowYourCustomer.jsx';
 import PaymentCallback from './components/payment/PaymentCallback.jsx';
 
 
-import AccessoriesItemPage from './accessoriesItemPage.jsx';
-import ItemPage from './itemPage.jsx';
-import UpdateAccessory from './components/forms/UpdateAccessory.jsx';
-import Unauthorized from './pages/Unauthorized.jsx';
-import Pricing from './pages/pricing.jsx';
-import NotFound from './notFound.jsx';
-import SellerPage from './pages/SellerPage.jsx';
 
-import Product from './productPage.jsx';
-import Accessories from './accessories.jsx';
+import Unauthorized from './pages/Unauthorized.jsx';
+
+import NotFound from './notFound.jsx';
+
 import Users from './App/admin/pages/users.jsx';
 import Products from './App/admin/pages/products.jsx';
 import Sellers from './App/admin/pages/sellers.jsx';
@@ -99,23 +94,13 @@ const AppRoutes = () => (
 
     {/* Protected Routes */}
     <Route element={<PersistLogin />}>
-      <Route path="home" element={< Home />} />
-      <Route path="pricing" element={<Pricing />} />
-      {/* <Route path="support" element={<Support />} /> */}
-      <Route path="vehicles" element={<Product />} />
-      <Route path="accessories" element={<Accessories />} />
-      {/* <Route path="accessory/:slug" element={<AccessoriesItemPage />} /> */}
-      <Route path="vehicle/:productId" element={<ItemPage />} />
-      <Route path="accessory/:accessoryId" element={<AccessoriesItemPage />} />
-      <Route path="seller/:sellerSlug" element={<SellerPage />} />   
-      {/* Blog management routes - protected */}
-    
-      <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-        <Route path="accessories/upload" element={<AddAccessories />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-        <Route path="accessory/update/:id" element={<UpdateAccessory />} />
-      </Route>
+      
+   
+
+      
+   
+
+      
 
       {/* Nested Routes for Authorization */}
       <Route element={<RequireAuth allowedRoles={[ ROLES.Seller, ROLES.Modarator, ROLES.Admin]} />}>

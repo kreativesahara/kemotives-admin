@@ -1,8 +1,7 @@
 import Navbar from "./navbar/navbar.jsx"
 import Footer from "./footer"
-import WhatsAppFloat from "./support/WhatsAppFloat.jsx"
-import ScrollNavButton from "./navigation/ScrollNavButton.jsx"
-import { contactInfo } from "../data/contact.js"
+
+
 
 function Layout({ children }) {
     return (
@@ -14,11 +13,7 @@ function Layout({ children }) {
                 </div>
             </main>
             <Footer />
-            <WhatsAppFloat 
-                phoneNumber={contactInfo.supportWhatsApp} 
-                defaultMessage={contactInfo.defaultSupportMessage} 
-            />
-            <ScrollNavButton />
+     
         </>
     )
 }

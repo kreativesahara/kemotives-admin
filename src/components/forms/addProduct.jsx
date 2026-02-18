@@ -5,10 +5,7 @@ import useAxiosPrivate from '../../api/useAxiosPrivate';
 import imageCompression from 'browser-image-compression';
 import useAuth from '../../hooks/useAuth';
 import Layout from '../../components/Layout';
-import carCategories from '../../data/carCategories';
-import counties from '../../data/counties';
-import featureList from '../../data/featureList';
-import vehicleOptions from '../../data/vehicleOptions';
+
 import { showWarning, showSuccess, showError } from "../../utils/sweetAlert";
 import { useListingLimit } from '../../hooks/useListingLimit';
 

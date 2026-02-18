@@ -5,10 +5,7 @@ import Select from 'react-select';
 import { useProductContext } from '../../context/ProductProvider';
 import { useSellerContext } from '../../context/SellerProvider';
 import useAxiosPrivate from '../../api/useAxiosPrivate';
-import carCategories from '../../data/carCategories';
-import counties from '../../data/counties';
-import featureList from '../../data/featureList';
-import vehicleOptions from '../../data/vehicleOptions';
+
 import { showWarning, showSuccess, showError } from "../../utils/sweetAlert";
 
 const UpdateProduct = () => {
