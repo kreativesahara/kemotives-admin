@@ -20,8 +20,8 @@ const UsersPage = () => {
             setIsLoading(true);
             try {
                 // In a real application, you would pass page and limit to the API
-                // Example: `/api/admin/users?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
-                const response = await axiosPrivate.get('/api/admin/users');
+                // Example: `/api/users?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
+                const response = await axiosPrivate.get('/api/users');
                 const { users, total } = response.data;
                 setUsers(users);
                 setTotalItems(total);

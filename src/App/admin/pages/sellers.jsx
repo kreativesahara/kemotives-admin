@@ -19,7 +19,7 @@ function SellersPage() {
     const fetchSellerStats = async () => {
       setIsLoading(true);
       try {
-        const response = await axiosPrivate.get('/api/admin/seller-stats');
+        const response = await axiosPrivate.get('/api/seller-stats');
         setSellerStats(response.data);
       } catch (error) {
         console.error('Failed to fetch seller stats:', error);

@@ -22,8 +22,8 @@ const SellersPageTable = () => {
             setIsLoading(true);
             try {
                 // In a real application, you would pass page and limit to the API
-                // Example: `/api/admin/sellers?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
-                const response = await axiosPrivate.get('/api/admin/sellers');
+                // Example: `/api/sellers?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
+                const response = await axiosPrivate.get('/api/sellers');
                 const { sellers, total } = response.data;
                 setSellers(sellers);
                 setTotalItems(total);

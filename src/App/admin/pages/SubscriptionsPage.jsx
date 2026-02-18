@@ -22,8 +22,8 @@ const SubscriptionsPage = () => {
             setIsLoading(true);
             try {
                 // In a real application, you would pass page and limit to the API
-                // Example: `/api/admin/subscriptions?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
-                const response = await axiosPrivate.get('/api/admin/subscriptions');
+                // Example: `/api/subscriptions?page=${currentPage}&limit=${ITEMS_PER_PAGE}`
+                const response = await axiosPrivate.get('/api/subscriptions');
                 const { subscriptions, total } = response.data;
                 setSubscriptions(subscriptions);
                 setTotalItems(total);

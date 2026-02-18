@@ -15,7 +15,7 @@ const ActiveUsers = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, this would fetch from the API
-                const response = await axiosPrivate.get(`/api/admin/active-users?period=${period}`);
+                const response = await axiosPrivate.get(`/api/active-users?period=${period}`);
                 setActiveUserData(response.data.activeUserData);
                 setDaumauRatio(response.data.daumauRatio);
             } catch (error) {
@@ -193,7 +193,7 @@ const ActiveUsers = () => {
                     </div>
                 </div>
             )}
-            <ConditionalViewAll to="/admin/users" entityName="active users" />
+            <ConditionalViewAll to="/users" entityName="active users" />
         </DashboardSection>
     );
 };

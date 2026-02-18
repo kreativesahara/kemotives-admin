@@ -19,7 +19,7 @@ function UsersPage() {
     const fetchUserStats = async () => {
       setIsLoading(true);
       try {
-        const response = await axiosPrivate.get('/api/admin/user-stats');
+        const response = await axiosPrivate.get('/api/user-stats');
         setUserStats(response.data);
       } catch (error) {
         console.error('Failed to fetch user stats:', error);

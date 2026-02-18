@@ -75,16 +75,16 @@ const AdminDashboard = ({ children, activeTab }) => {
   // Navigation items for the sidebar
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', path: '/admin' },
-    { id: 'users', label: 'User Management', icon: 'person', path: '/admin/users' },
-    { id: 'products', label: 'Product Management', icon: 'inventory_2', path: '/admin/products' },
-    { id: 'sellers', label: 'Seller Management', icon: 'store', path: '/admin/sellers' },
-    { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/admin/reports' }
+    { id: 'users', label: 'User Management', icon: 'person', path: '/users' },
+    { id: 'products', label: 'Product Management', icon: 'inventory_2', path: '/products' },
+    { id: 'sellers', label: 'Seller Management', icon: 'store', path: '/sellers' },
+    { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/reports' }
   ];
 
   // Admin-only navigation items
   if (isAdmin) {
     navItems.push(
-      { id: 'settings', label: 'System Settings', icon: 'settings', path: '/admin/settings' }
+      { id: 'settings', label: 'System Settings', icon: 'settings', path: '/settings' }
     );
   }
 
@@ -170,16 +170,16 @@ function Admin() {
   // Navigation items for the sidebar
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: 'dashboard', path: '/admin' },
-    { id: 'users', label: 'User Management', icon: 'person', path: '/admin/users' },
-    { id: 'products', label: 'Product Management', icon: 'inventory_2', path: '/admin/products' },
-    { id: 'sellers', label: 'Seller Management', icon: 'store', path: '/admin/sellers' },
-    { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/admin/reports' }
+    { id: 'users', label: 'User Management', icon: 'person', path: '/users' },
+    { id: 'products', label: 'Product Management', icon: 'inventory_2', path: '/products' },
+    { id: 'sellers', label: 'Seller Management', icon: 'store', path: '/sellers' },
+    { id: 'reports', label: 'Reports & Analytics', icon: 'monitoring', path: '/reports' }
   ];
 
   // Admin-only navigation items
   if (isAdmin) {
     navItems.push(
-      { id: 'settings', label: 'System Settings', icon: 'settings', path: '/admin/settings' }
+      { id: 'settings', label: 'System Settings', icon: 'settings', path: '/settings' }
     );
   }
 
@@ -189,7 +189,7 @@ function Admin() {
       setIsLoading(true);
       try {
         // Attempt to get data from API
-        const response = await axiosPrivate.get('/api/admin/dashboard');
+        const response = await axiosPrivate.get('/api/dashboard');
         const { stats, recentUsers, recentProducts } = response.data;
         setStats(stats);
         setRecentUsers(recentUsers);
@@ -301,7 +301,7 @@ function Admin() {
               </table>
             </div>
             <div className="mt-3 text-right">
-              <Link to="/admin/users" className="text-blue-500 hover:underline text-sm">
+              <Link to="/users" className="text-blue-500 hover:underline text-sm">
                 View all users →
               </Link>
             </div>
@@ -341,7 +341,7 @@ function Admin() {
               </table>
             </div>
             <div className="mt-3 text-right">
-              <Link to="/admin/products" className="text-blue-500 hover:underline text-sm">
+              <Link to="/products" className="text-blue-500 hover:underline text-sm">
                 View all products →
               </Link>
             </div>

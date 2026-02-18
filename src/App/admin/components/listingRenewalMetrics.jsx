@@ -23,7 +23,7 @@ const ListingRenewalMetrics = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get(`/api/admin/listing-renewals?timeframe=${timeframe}`);
+                const response = await axiosPrivate.get(`/api/listing-renewals?timeframe=${timeframe}`);
                 setRenewalData(response.data.renewalData);
                 setRenewalByCategory(response.data.renewalByCategory);
                 setRenewalTrend(response.data.renewalTrend);

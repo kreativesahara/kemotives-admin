@@ -17,7 +17,7 @@ const RecentProducts = () => {
         const fetchDashboardData = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosPrivate.get('/api/admin/dashboard');
+                const response = await axiosPrivate.get('/api/dashboard');
                 const { recentProducts } = response.data;
                 setRecentProducts(recentProducts);
             } catch (error) {
@@ -125,7 +125,7 @@ const RecentProducts = () => {
                     </tbody>
                 </table>
             </div>
-            <ConditionalViewAll to="/admin/products" entityName="products" />
+            <ConditionalViewAll to="/products" entityName="products" />
         </DashboardSection>
     );
 };

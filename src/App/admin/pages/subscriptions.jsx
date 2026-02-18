@@ -18,7 +18,7 @@ function SubscriptionsPage() {
         const fetchSubscriptionStats = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosPrivate.get('/api/admin/subscription-stats');
+                const response = await axiosPrivate.get('/api/subscription-stats');
                 setSubscriptionStats(response.data);
             } catch (error) {
                 console.error('Failed to fetch subscription stats:', error);

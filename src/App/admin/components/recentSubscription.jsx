@@ -23,7 +23,7 @@ const RecentSubscriptionPayments = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const { data } = await axiosPrivate.get('/api/admin/dashboard/subscriptions');
+        const { data } = await axiosPrivate.get('/api/dashboard/subscriptions');
         if (isMounted) setPayments(data.recentSubscriptionPayments || []);
       } catch (err) {
         console.error('Failed to fetch subscription payments:', err);
@@ -132,7 +132,7 @@ const RecentSubscriptionPayments = () => {
               </tbody>
             </table>
           </div>
-          <ConditionalViewAll to="/admin/subscriptions" entityName="subscriptions" />
+          <ConditionalViewAll to="/subscriptions" entityName="subscriptions" />
         </>
       )}
     </DashboardSection>

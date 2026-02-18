@@ -14,7 +14,7 @@ const CarLocation = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get(`/api/admin/car-locations?mode=${viewMode}`);
+                const response = await axiosPrivate.get(`/api/car-locations?mode=${viewMode}`);
                 setLocationData(response.data.locationData);
                 setTopLocations(response.data.topLocations);
             } catch (error) {
@@ -209,7 +209,7 @@ const CarLocation = () => {
                     </div>
                 </div>
             )}
-            <ConditionalViewAll to="/admin/reports" entityName="location reports" />
+            <ConditionalViewAll to="/reports" entityName="location reports" />
         </DashboardSection>
     );
 };

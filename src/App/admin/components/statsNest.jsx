@@ -15,7 +15,7 @@ const StatsNest = () => {
         const fetchDashboardData = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosPrivate.get('/api/admin/dashboad');
+                const response = await axiosPrivate.get('/api/dashboad');
                 const { stats } = response.data;
                 setStats(stats);
             } catch (error) {

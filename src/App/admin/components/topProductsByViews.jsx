@@ -12,7 +12,7 @@ const TopProductsByViews = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API with the period parameter
-                const response = await axiosPrivate.get(`/api/admin/top-products-by-views?period=${period}`);
+                const response = await axiosPrivate.get(`/api/top-products-by-views?period=${period}`);
                 setTopProducts(response.data.products);
             } catch (error) {
                 console.error('Failed to fetch top products data:', error);

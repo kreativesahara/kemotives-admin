@@ -12,7 +12,7 @@ const RecentUsers = () => {
         const fetchDashboardData = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosPrivate.get('/api/admin/dashboard');
+                const response = await axiosPrivate.get('/api/dashboard');
                 const { recentUsers } = response.data;
                 // Limit to 15 users for the dashboard preview
                 setRecentUsers(recentUsers.slice(0, 15));
@@ -61,7 +61,7 @@ const RecentUsers = () => {
                 </tbody>
             </table>
         </div>
-        <ConditionalViewAll to="/admin/users" entityName="users" />
+        <ConditionalViewAll to="/users" entityName="users" />
         </DashboardSection>
     );
 };

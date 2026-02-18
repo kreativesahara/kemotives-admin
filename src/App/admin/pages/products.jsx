@@ -22,7 +22,7 @@ function ProductsPage() {
         const fetchProductStats = async () => {
             setIsLoading(true);
             try {
-                const response = await axiosPrivate.get('/api/admin/product-stats');
+                const response = await axiosPrivate.get('/api/product-stats');
                 setProductStats(response.data);
             } catch (error) {
                 console.error('Failed to fetch product stats:', error);

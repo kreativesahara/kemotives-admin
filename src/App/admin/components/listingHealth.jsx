@@ -16,7 +16,7 @@ const ListingHealth = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get('/api/admin/listing-health');
+                const response = await axiosPrivate.get('/api/listing-health');
                 setListingData(response.data.listingData);
             } catch (error) {
                 console.error('Failed to fetch listing health data:', error);
@@ -140,7 +140,7 @@ const ListingHealth = () => {
                     </div>
                 </div>
             )}
-            <ConditionalViewAll to="/admin/products" entityName="listings" />
+            <ConditionalViewAll to="/products" entityName="listings" />
         </DashboardSection>
     );
 };

@@ -12,7 +12,7 @@ const RecentSellerLogins = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API with the period parameter
-                const response = await axiosPrivate.get(`/api/admin/seller-logins?period=${period}`);
+                const response = await axiosPrivate.get(`/api/seller-logins?period=${period}`);
                 setSellers(response.data.sellers);
             } catch (error) {
                 console.error('Failed to fetch seller login data:', error);

@@ -14,7 +14,7 @@ const TopModels = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API with the period parameter
-                const response = await axiosPrivate.get(`/api/admin/top-models?period=${period}`);
+                const response = await axiosPrivate.get(`/api/top-models?period=${period}`);
                 setTopModels(response.data.topModels);
             } catch (error) {
                 console.error('Failed to fetch top models data:', error);
@@ -122,7 +122,7 @@ const TopModels = () => {
                     </ResponsiveContainer>
                 </div>
             )}
-            <ConditionalViewAll to="/admin/reports" entityName="models" />
+            <ConditionalViewAll to="/reports" entityName="models" />
         </DashboardSection>
     );
 };

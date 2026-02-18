@@ -21,7 +21,7 @@ function ReportsPage() {
     const fetchReportStats = async () => {
       setIsLoading(true);
       try {
-        const response = await axiosPrivate.get('/api/admin/report-stats');
+        const response = await axiosPrivate.get('/api/report-stats');
         setReportStats(response.data);
       } catch (error) {
         console.error('Failed to fetch report stats:', error);

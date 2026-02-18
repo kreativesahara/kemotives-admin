@@ -17,7 +17,7 @@ const CarCategories = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get('/api/admin/car-categories');
+                const response = await axiosPrivate.get('/api/car-categories');
                 setCategoryData(response.data.categoryData);
                 setTopModelsData(response.data.topModelsData);
             } catch (error) {
@@ -197,7 +197,7 @@ const CarCategories = () => {
                     </div>
                 )
             )}
-            <ConditionalViewAll to="/admin/products" entityName="categories" />
+            <ConditionalViewAll to="/products" entityName="categories" />
         </DashboardSection>
     );
 };

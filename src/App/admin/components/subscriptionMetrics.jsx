@@ -22,7 +22,7 @@ const SubscriptionMetrics = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get(`/api/admin/subscription-metrics?period=${period}`);
+                const response = await axiosPrivate.get(`/api/subscription-metrics?period=${period}`);
                 setSubscriptionData(response.data.subscriptionData);
                 setSubscriptionDistribution(response.data.subscriptionDistribution);
                 setMrrData(response.data.mrrData);

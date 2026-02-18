@@ -15,7 +15,7 @@ const FailedPayments = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get('/api/admin/failed-payments');
+                const response = await axiosPrivate.get('/api/failed-payments');
                 setFailedPayments(response.data.failedPayments);
             } catch (error) {
                 console.error('Failed to fetch payment data:', error);

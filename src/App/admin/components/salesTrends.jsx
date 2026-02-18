@@ -13,7 +13,7 @@ const SalesTrends = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API with the timeframe parameter
-                const response = await axiosPrivate.get(`/api/admin/sales?timeframe=${timeframe}`);
+                const response = await axiosPrivate.get(`/api/sales?timeframe=${timeframe}`);
                 setSalesData(response.data.salesData);
             } catch (error) {
                 console.error('Failed to fetch sales data:', error);

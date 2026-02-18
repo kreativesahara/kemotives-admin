@@ -16,7 +16,7 @@ const PaymentMetrics = () => {
             setIsLoading(true);
             try {
                 // In a real scenario, we would fetch from the API
-                const response = await axiosPrivate.get(`/api/admin/payment-metrics?period=${period}`);
+                const response = await axiosPrivate.get(`/api/payment-metrics?period=${period}`);
                 setRevenueData(response.data.revenueData);
                 setTransactionData(response.data.transactionData);
                 setPaymentMethods(response.data.paymentMethods);
