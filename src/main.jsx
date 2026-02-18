@@ -6,17 +6,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App/App.jsx';
 import Admin from './App/admin/Admin.jsx';
-import Home from './App/home.jsx';
+
 import Login from './App/login.jsx';
 import Register from './App/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
-import AddProduct from './components/forms/addProduct.jsx';
-import AddAccessories from './components/forms/addAccessories.jsx';
-import BecomeSeller from './components/forms/becomeSeller.jsx';
-import UpdateProduct from './components/forms/updateProduct.jsx';
-import KnowYourCustomer from './components/forms/knowYourCustomer.jsx';
-import PaymentCallback from './components/payment/PaymentCallback.jsx';
+
 
 
 
@@ -41,9 +36,8 @@ import SeoProvider from './context/SeoProvider.jsx';
 import PersistLogin from './controllers/PersistLogin';
 import RequireAuth from './controllers/RequireAuth';
 
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
-import * as analytics from './utils/analytics';
+
+
 import { setupSmoothAnchorLinks } from './utils/scrollUtils';
 
 import 'material-symbols';
@@ -88,8 +82,8 @@ const AppRoutes = () => (
     <Route path="login" element={<Login />} />
     <Route path="forgot-password" element={<ForgotPassword />} />
     <Route path="reset-password" element={<ResetPassword />} />
-    <Route path="/" element={< Home />} />
-    <Route path="payment-callback" element={<PaymentCallback />} />
+
+
 
 
     {/* Protected Routes */}
@@ -124,18 +118,7 @@ const AppRoutes = () => (
       <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="admin/reports" element={<Reports />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Seller, ROLES.Admin]} />}>
-        <Route path="products/upload" element={<AddProduct />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Seller, ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="app/:productId" element={<UpdateProduct />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Visitor, ROLES.Seller, ROLES.Admin]} />}>
-        <Route path="become-seller" element={<BecomeSeller />} />
-      </Route>
-      <Route element={<RequireAuth allowedRoles={[ROLES.Seller, ROLES.Admin]} />}>
-        <Route path="kyc-verification" element={<KnowYourCustomer />} />
-      </Route>
+  
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="admin/kyc" element={<KycVerification />} />
       </Route>
@@ -152,9 +135,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <SellerProvider>
                 <BlogProvider>
                   <Router>
-                    <AnalyticsListener />
-                    <Analytics />
-                    <SpeedInsights />
                     <AppRoutes />
                     <ToastContainer
                       position="top-right"
