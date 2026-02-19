@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 import Admin from './App/admin/Admin.jsx';
 
 import Login from './App/login.jsx';
@@ -12,11 +10,7 @@ import Register from './App/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
 
-
-
-
 import Unauthorized from './pages/Unauthorized.jsx';
-
 import NotFound from './notFound.jsx';
 
 import Users from './App/admin/pages/users.jsx';
