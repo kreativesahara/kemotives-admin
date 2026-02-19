@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { axiosPrivate } from "../../api/axios";
+import { axiosPrivate } from "../api/axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { faCheck, faTimes, faInfoCircle, faEye, faEyeSlash, faUser, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { showSuccess, showError } from "../../utils/sweetAlert";
+import { showSuccess, showError } from "../utils/sweetAlert";
 
 const MAIL_REGEX = /^(?=[a-z0-9@.]+$)(?=.*@)(?=.*\.)[a-z0-9]+(?:\.[a-z0-9]+)*@[a-z0-9]+(?:\.[a-z0-9]+)*\.[a-z]{2,}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
