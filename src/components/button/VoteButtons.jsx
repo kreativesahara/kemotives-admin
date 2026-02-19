@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from '../../../../api/axios';
-import useAxiosPrivate from '../../../../api/useAxiosPrivate';
-import useAuth from '../../../../hooks/useAuth';
+import axios from '../../api/axios';
+import useAxiosPrivate from '../../api/useAxiosPrivate';
+import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 
 export default function VoteButtons({ blogId, initialVotes = 0 }) {
