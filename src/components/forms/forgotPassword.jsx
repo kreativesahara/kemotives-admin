@@ -1,11 +1,11 @@
-import Layout from "./Layout"
+import Layout from "../Layout"
 import { Link } from "react-router-dom"
-import { axiosPrivate } from '../api/axios';
+import { axiosPrivate } from '../../api/axios';
 import { useState, useRef, useEffect } from "react"
-import { showSuccess, showError } from "../utils/sweetAlert";
+import { showSuccess, showError } from "../../utils/sweetAlert";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useSeoContext } from "../context/SeoProvider";
+import { useSeoContext } from "../../context/SeoProvider";
 
 function ForgotPassword() {
     const { updateSeo } = useSeoContext();

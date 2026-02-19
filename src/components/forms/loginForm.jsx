@@ -1,11 +1,11 @@
 import React from 'react'
-import { axiosPrivate } from '../api/axios'
-import useAuth from '../hooks/useAuth'
+import { axiosPrivate } from '../../api/axios'
+import useAuth from '../../hooks/useAuth'
 import { Link, useLocation } from 'react-router-dom'
 import { useRef, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
-import { showSuccess, showError, showInfo } from '../utils/sweetAlert';
+import { showSuccess, showError, showInfo } from '../../utils/sweetAlert';
 import Swal from 'sweetalert2';
 import CookieConsent from './CookieConsent';
 
