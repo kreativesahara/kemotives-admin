@@ -13,12 +13,12 @@ import ResetPassword from './components/forms/resetPassword.jsx';
 import Unauthorized from './pages/Unauthorized.jsx';
 import NotFound from './notFound.jsx';
 
-import Users from './App/admin/pages/users.jsx';
-import Products from './App/admin/pages/products.jsx';
-import Sellers from './App/admin/pages/sellers.jsx';
-import Reports from './App/admin/pages/reports.jsx';
-import Subscriptions from './App/admin/pages/subscriptions.jsx';
-import KycVerification from './App/admin/pages/KycVerification.jsx';
+import Users from './pages/users.jsx';
+import Products from './pages/products.jsx';
+import Sellers from './pages/sellers.jsx';
+import Reports from './pages/reports.jsx';
+import Subscriptions from './pages/subscriptions.jsx';
+import KycVerification from './pages/KycVerification.jsx';
 
 import { AuthProvider } from './context/AuthProvider.jsx';
 import { ProductProvider } from './context/ProductProvider.jsx';
