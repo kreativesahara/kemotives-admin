@@ -35,7 +35,7 @@ import RequireAuth from './controllers/RequireAuth';
 import { setupSmoothAnchorLinks } from './utils/scrollUtils';
 
 import 'material-symbols';
-import './index.css';
+import './assets/index.css';
 
 // Initialize smooth scrolling for anchor links
 if (typeof window !== 'undefined') {
