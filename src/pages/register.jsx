@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import RegisterUser from '../components/forms/registerForm'
 import Layout from '../components/Layout'
-import { useSeoContext } from '../context/SeoProvider'
+import { useSeoContext } from '../providers/SeoProvider'
 function register() {
   const { updateSeo } = useSeoContext();
 

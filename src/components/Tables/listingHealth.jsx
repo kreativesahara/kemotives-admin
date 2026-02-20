@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 

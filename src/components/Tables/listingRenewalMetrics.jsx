@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 
 const COLORS = ['#3b82f6', '#10b981', '#f97316', '#8b5cf6', '#ef4444', '#06b6d4'];
@@ -237,8 +237,8 @@ const ListingRenewalMetrics = () => {
                         <button
                             onClick={() => handleViewChange('rate')}
                             className={`px-3 py-1 text-sm rounded-md ${viewMode === 'rate'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Renewal Rate
@@ -246,8 +246,8 @@ const ListingRenewalMetrics = () => {
                         <button
                             onClick={() => handleViewChange('distribution')}
                             className={`px-3 py-1 text-sm rounded-md ${viewMode === 'distribution'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Distribution
@@ -257,8 +257,8 @@ const ListingRenewalMetrics = () => {
                         <button
                             onClick={() => handleTimeframeChange('month')}
                             className={`px-3 py-1 text-sm rounded-md ${timeframe === 'month'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Month
@@ -266,8 +266,8 @@ const ListingRenewalMetrics = () => {
                         <button
                             onClick={() => handleTimeframeChange('quarter')}
                             className={`px-3 py-1 text-sm rounded-md ${timeframe === 'quarter'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Quarter
@@ -275,8 +275,8 @@ const ListingRenewalMetrics = () => {
                         <button
                             onClick={() => handleTimeframeChange('halfyear')}
                             className={`px-3 py-1 text-sm rounded-md ${timeframe === 'halfyear'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             6 Months

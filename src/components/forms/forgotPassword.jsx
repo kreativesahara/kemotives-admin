@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react"
 import { showSuccess, showError } from "../../utils/sweetAlert";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useSeoContext } from "../../context/SeoProvider";
+import { useSeoContext } from "../../providers/SeoProvider";
 
 function ForgotPassword() {
     const { updateSeo } = useSeoContext();
@@ -76,7 +76,7 @@ function ForgotPassword() {
                                 We've sent password reset instructions to your email address.
                             </p>
                             <div className="pt-4 space-y-3">
-                                <Link 
+                                <Link
                                     to="/login"
                                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
                                 >
@@ -134,9 +134,8 @@ function ForgotPassword() {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black ${
-                                            isLoading ? 'opacity-75 cursor-not-allowed' : ''
-                                        }`}
+                                        className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black ${isLoading ? 'opacity-75 cursor-not-allowed' : ''
+                                            }`}
                                     >
                                         {isLoading ? 'Sending...' : 'Send Reset Instructions'}
                                     </button>
@@ -148,7 +147,7 @@ function ForgotPassword() {
                                         Back to Login
                                     </Link>
                                 </div>
-                            </form>                            
+                            </form>
                         </div>
                     )}
                 </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 
 const FailedPayments = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -196,8 +196,8 @@ const FailedPayments = () => {
                                     key={status}
                                     onClick={() => handleStatusFilterChange(status)}
                                     className={`px-3 py-1 text-xs rounded-md capitalize ${filterStatus === status
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        ? 'bg-blue-500 text-white'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                         }`}
                                 >
                                     {status === 'all' ? 'All' : status}
@@ -213,8 +213,8 @@ const FailedPayments = () => {
                                     key={type}
                                     onClick={() => handleTypeFilterChange(type)}
                                     className={`px-3 py-1 text-xs rounded-md ${filterType === type
-                                            ? 'bg-blue-500 text-white'
-                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        ? 'bg-blue-500 text-white'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                         }`}
                                 >
                                     {type === 'all' ? 'All Types' : formatPaymentType(type)}

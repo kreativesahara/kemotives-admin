@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const COLORS = ['#3b82f6', '#10b981', '#f97316'];
@@ -165,8 +165,8 @@ const SubscriptionMetrics = () => {
                     <button
                         onClick={() => handlePeriodChange('quarter')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         3 Months
@@ -174,8 +174,8 @@ const SubscriptionMetrics = () => {
                     <button
                         onClick={() => handlePeriodChange('halfyear')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'halfyear'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         6 Months
@@ -183,8 +183,8 @@ const SubscriptionMetrics = () => {
                     <button
                         onClick={() => handlePeriodChange('year')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'year'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         12 Months

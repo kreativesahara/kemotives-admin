@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Badge from "../../utils/badges";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import LoadingSpinner from "../../utils/loadingspinner";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 

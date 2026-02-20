@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import useAuth from "./hooks/useAuth";
-import { axiosPrivate } from "./api/axios";
-import LoadingSpinner from "./utils/loadingspinner";
-import AdminDashboard from "./layout";
-import QuickAction from "./components/Tables/quickActions";
-import StatsNest from "./components/Tables/statsNest";
-import RecentUsers from "./components/Tables/recentUsers";
-import RecentProducts from "./components/Tables/recentProducts";
-import RecentSubscription from "./components/Tables/recentSubscription";
-import PerformanceMonitor from "./components/Tables/PerformanceMonitor";
-import SalesTrends from "./components/Tables/salesTrends";
-import TopModels from "./components/Tables/topModels";
-import ListingHealth from "./components/Tables/listingHealth";
-import ActiveUsers from "./components/Tables/activeUsers";
-import CarCategories from "./components/Tables/carCategories";
-import CarLocation from "./components/Tables/carLocation";
-import PaymentMetrics from "./components/Tables/paymentMetrics";
-import SubscriptionMetrics from "./components/Tables/subscriptionMetrics";
-import FailedPayments from "./components/Tables/failedPayments";
-import ListingRenewalMetrics from "./components/Tables/listingRenewalMetrics";
+import useAuth from "../hooks/useAuth";
+import { axiosPrivate } from "../api/axios";
+import LoadingSpinner from "../utils/loadingspinner";
+import AdminDashboard from "../layout/layout";
+import QuickAction from "../components/Tables/quickActions";
+import StatsNest from "../components/Tables/statsNest";
+import RecentUsers from "../components/Tables/recentUsers";
+import RecentProducts from "../components/Tables/recentProducts";
+import RecentSubscription from "../components/Tables/recentSubscription";
+import PerformanceMonitor from "../components/Tables/PerformanceMonitor";
+import SalesTrends from "../components/Tables/salesTrends";
+import TopModels from "../components/Tables/topModels";
+import ListingHealth from "../components/Tables/listingHealth";
+import ActiveUsers from "../components/Tables/activeUsers";
+import CarCategories from "../components/Tables/carCategories";
+import CarLocation from "../components/Tables/carLocation";
+import PaymentMetrics from "../components/Tables/paymentMetrics";
+import SubscriptionMetrics from "../components/Tables/subscriptionMetrics";
+import FailedPayments from "../components/Tables/failedPayments";
+import ListingRenewalMetrics from "../components/Tables/listingRenewalMetrics";
 
 /**
  * Admin Dashboard Component
@@ -68,7 +68,7 @@ function Admin() {
           <RecentProducts />
           <RecentSubscription />
           <TopModels />
-        </div>       
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <ActiveUsers />
           <ListingHealth />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -102,8 +102,8 @@ const CarCategories = () => {
                     <button
                         onClick={() => handleViewChange('categories')}
                         className={`px-3 py-1 text-sm rounded-md ${viewType === 'categories'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Categories
@@ -111,8 +111,8 @@ const CarCategories = () => {
                     <button
                         onClick={() => handleViewChange('models')}
                         className={`px-3 py-1 text-sm rounded-md ${viewType === 'models'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Top Models

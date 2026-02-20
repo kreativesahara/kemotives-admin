@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -69,8 +69,8 @@ const TopModels = () => {
                     <button
                         onClick={() => handlePeriodChange('week')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'week'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Week
@@ -78,8 +78,8 @@ const TopModels = () => {
                     <button
                         onClick={() => handlePeriodChange('month')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'month'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Month
@@ -87,8 +87,8 @@ const TopModels = () => {
                     <button
                         onClick={() => handlePeriodChange('quarter')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Quarter

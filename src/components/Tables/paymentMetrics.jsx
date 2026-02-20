@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 const PaymentMetrics = () => {
@@ -182,8 +182,8 @@ const PaymentMetrics = () => {
                         <button
                             onClick={() => handleViewChange('revenue')}
                             className={`px-3 py-1 text-sm rounded-md ${viewMode === 'revenue'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Revenue
@@ -191,8 +191,8 @@ const PaymentMetrics = () => {
                         <button
                             onClick={() => handleViewChange('transactions')}
                             className={`px-3 py-1 text-sm rounded-md ${viewMode === 'transactions'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Transactions
@@ -202,8 +202,8 @@ const PaymentMetrics = () => {
                         <button
                             onClick={() => handlePeriodChange('week')}
                             className={`px-3 py-1 text-sm rounded-md ${period === 'week'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Week
@@ -211,8 +211,8 @@ const PaymentMetrics = () => {
                         <button
                             onClick={() => handlePeriodChange('month')}
                             className={`px-3 py-1 text-sm rounded-md ${period === 'month'
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             Month

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const SalesTrends = () => {
@@ -111,8 +111,8 @@ const SalesTrends = () => {
                     <button
                         onClick={() => handleTimeframeChange('daily')}
                         className={`px-3 py-1 text-sm rounded-md ${timeframe === 'daily'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Daily
@@ -120,8 +120,8 @@ const SalesTrends = () => {
                     <button
                         onClick={() => handleTimeframeChange('weekly')}
                         className={`px-3 py-1 text-sm rounded-md ${timeframe === 'weekly'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Weekly
@@ -129,8 +129,8 @@ const SalesTrends = () => {
                     <button
                         onClick={() => handleTimeframeChange('monthly')}
                         className={`px-3 py-1 text-sm rounded-md ${timeframe === 'monthly'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Monthly

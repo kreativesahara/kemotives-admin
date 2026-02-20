@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 
 const TopProductsByViews = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -55,8 +55,8 @@ const TopProductsByViews = () => {
                     <button
                         onClick={() => handlePeriodChange('week')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'week'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Week
@@ -64,8 +64,8 @@ const TopProductsByViews = () => {
                     <button
                         onClick={() => handlePeriodChange('month')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'month'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Month
@@ -73,8 +73,8 @@ const TopProductsByViews = () => {
                     <button
                         onClick={() => handlePeriodChange('quarter')}
                         className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Quarter
@@ -111,10 +111,10 @@ const TopProductsByViews = () => {
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-purple-600 font-medium">{product.clicks.toLocaleString()}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <span className={`px-2 py-1 rounded-full text-xs ${parseFloat(calculateConversionRate(product.views, product.clicks)) > 7
-                                                ? 'bg-green-100 text-green-800'
-                                                : parseFloat(calculateConversionRate(product.views, product.clicks)) > 5
-                                                    ? 'bg-yellow-100 text-yellow-800'
-                                                    : 'bg-red-100 text-red-800'
+                                            ? 'bg-green-100 text-green-800'
+                                            : parseFloat(calculateConversionRate(product.views, product.clicks)) > 5
+                                                ? 'bg-yellow-100 text-yellow-800'
+                                                : 'bg-red-100 text-red-800'
                                             }`}>
                                             {calculateConversionRate(product.views, product.clicks)}%
                                         </span>

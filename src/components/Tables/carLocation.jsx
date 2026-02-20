@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../dataTable";
+import DashboardSection from "../../layout/dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 
 const CarLocation = () => {
@@ -94,8 +94,8 @@ const CarLocation = () => {
                     <button
                         onClick={() => handleModeChange('inventory')}
                         className={`px-3 py-1 text-sm rounded-md ${viewMode === 'inventory'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Inventory
@@ -103,8 +103,8 @@ const CarLocation = () => {
                     <button
                         onClick={() => handleModeChange('sales')}
                         className={`px-3 py-1 text-sm rounded-md ${viewMode === 'sales'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                             }`}
                     >
                         Sales

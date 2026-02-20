@@ -1,11 +1,11 @@
 import React, { useCallback } from "react";
-import useAuth from "./hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 import { useNavigate } from 'react-router-dom';
-import Sidebar from "./components/Tables/Sidebar";
+import Sidebar from "../components/Tables/Sidebar";
 
 const AdminDashboard = ({ children, activeTab, setActiveTab }) => {
     const { auth, setAuth } = useAuth();
-    
+
     const navigate = useNavigate();
     const isAdmin = auth?.roles === 5;
     const isModerator = auth?.roles === 4;
@@ -24,7 +24,7 @@ const AdminDashboard = ({ children, activeTab, setActiveTab }) => {
     return (
         <div className="flex h-screen">
             {/* Use the memoized Sidebar component */}
-            <Sidebar 
+            <Sidebar
                 isAdmin={isAdmin}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
