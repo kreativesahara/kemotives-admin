@@ -27,8 +27,8 @@ import { BlogProvider } from './providers/BlogProvider.jsx';
 import { SearchProvider } from './providers/SearchProvider.jsx';
 import { SellerProvider } from './providers/SellerProvider.jsx';
 import SeoProvider from './providers/SeoProvider.jsx';
-import PersistLogin from './controllers/PersistLogin';
-import RequireAuth from './controllers/RequireAuth';
+import PersistLogin from './authorization/PersistLogin.jsx';
+import RequireAuth from './authorization/RequireAuth.jsx';
 
 
 

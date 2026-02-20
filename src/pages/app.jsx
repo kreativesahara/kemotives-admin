@@ -10,17 +10,11 @@ import RecentUsers from "../components/Tables/recentUsers";
 import RecentProducts from "../components/Tables/recentProducts";
 import RecentSubscription from "../components/Tables/recentSubscription";
 import PerformanceMonitor from "../components/Tables/PerformanceMonitor";
-import SalesTrends from "../components/Tables/salesTrends";
 import TopModels from "../components/Tables/topModels";
 import ListingHealth from "../components/Tables/listingHealth";
 import ActiveUsers from "../components/Tables/activeUsers";
 import CarCategories from "../components/Tables/carCategories";
 import CarLocation from "../components/Tables/carLocation";
-import PaymentMetrics from "../components/Tables/paymentMetrics";
-import SubscriptionMetrics from "../components/Tables/subscriptionMetrics";
-import FailedPayments from "../components/Tables/failedPayments";
-import ListingRenewalMetrics from "../components/Tables/listingRenewalMetrics";
-
 /**
  * Admin Dashboard Component
  * 
