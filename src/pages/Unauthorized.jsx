@@ -43,4 +43,4 @@ const Unauthorized = () => {
     );
 };
 
-export default Unauthorized;
+export default Unauthorized
