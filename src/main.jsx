@@ -3,35 +3,31 @@ import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Admin from './pages/app.jsx';
 
-import Login from './pages/login.jsx';
-import Register from './pages/register.jsx';
-import ForgotPassword from './components/forms/forgotPassword.jsx';
-import ResetPassword from './components/forms/resetPassword.jsx';
-
-import NotFound from './pages/notFound.jsx';
-
-import Users from './pages/users.jsx';
-import Products from './pages/products.jsx';
-import Sellers from './pages/sellers.jsx';
-import Reports from './pages/reports.jsx';
-import Subscriptions from './pages/subscriptions.jsx';
-import KycVerification from './pages/kycVerification.jsx';
-
+import { setupSmoothAnchorLinks } from './utils/scrollUtils';
 import { AuthProvider } from './providers/AuthProvider.jsx';
 import { ProductProvider } from './providers/ProductProvider.jsx';
 import { AccessoriesProvider } from './providers/AccessoriesProvider.jsx';
 import { BlogProvider } from './providers/BlogProvider.jsx';
 import { SearchProvider } from './providers/SearchProvider.jsx';
 import { SellerProvider } from './providers/SellerProvider.jsx';
+
 import SeoProvider from './providers/SeoProvider.jsx';
 import PersistLogin from './authorization/PersistLogin.jsx';
 import RequireAuth from './authorization/RequireAuth.jsx';
 
-
-
-import { setupSmoothAnchorLinks } from './utils/scrollUtils';
+import App from './pages/app.jsx';
+import Login from './pages/login.jsx';
+import Register from './pages/register.jsx';
+import ForgotPassword from './components/forms/forgotPassword.jsx';
+import ResetPassword from './components/forms/resetPassword.jsx';
+import Users from './pages/users.jsx';
+import Products from './pages/products.jsx';
+import Sellers from './pages/sellers.jsx';
+import Reports from './pages/reports.jsx';
+import Subscriptions from './pages/subscriptions.jsx';
+import KycVerification from './pages/kycVerification.jsx';
+import NotFound from './pages/notFound.jsx';
 
 import 'material-symbols';
 import './assets/index.css';
@@ -82,7 +78,7 @@ const AppRoutes = () => (
     <Route element={<PersistLogin />}>
       {/* Nested Routes for Authorization */}
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
-        <Route path="/" element={<Admin />} />
+        <Route path="/" element={<App />} />
       </Route>
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/users" element={<Users />} />
