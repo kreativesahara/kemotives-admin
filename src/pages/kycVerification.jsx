@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import AdminDashboard from './layout';
 import useAxiosPrivate from '../api/useAxiosPrivate';
@@ -12,8 +11,6 @@ import useAxiosPrivate from '../api/useAxiosPrivate';
 const Verification = () => {
   const [activeTab, setActiveTab] = useState('sellers');
   const { auth } = useAuth();
-  const navigate = useNavigate();
-
   const [Records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState('pending');
@@ -37,7 +34,6 @@ const Verification = () => {
         setRecords(response.data);
       } else if (response.status === 403) {
         toast.error('You do not have permission to access  records');
-        navigate('/dashboard');
       } else {
         toast.error(response.data.message || 'Failed to fetch  records');
       }
