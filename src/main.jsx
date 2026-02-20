@@ -10,7 +10,6 @@ import Register from './pages/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
 
-import Unauthorized from './pages/unauthorized.jsx';
 import NotFound from './pages/notFound.jsx';
 
 import Users from './pages/users.jsx';
@@ -69,7 +68,6 @@ const AdminLoadingFallback = () => (
 const AppRoutes = () => (
   <Routes>
     {/* Public Routes */}
-    <Route path="unauthorized" element={<Unauthorized />} />
     <Route path="notfound" element={<NotFound />} />
     <Route path="*" element={<NotFound />} /> {/* Add this line to catch all unmatched routes */}
     <Route path="register" element={<Register />} />
@@ -82,16 +80,7 @@ const AppRoutes = () => (
 
     {/* Protected Routes */}
     <Route element={<PersistLogin />}>
-
-
-
-
-
-
-
-
       {/* Nested Routes for Authorization */}
-
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/" element={<Admin />} />
       </Route>
@@ -110,7 +99,6 @@ const AppRoutes = () => (
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/reports" element={<Reports />} />
       </Route>
-
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/kyc" element={<KycVerification />} />
       </Route>
