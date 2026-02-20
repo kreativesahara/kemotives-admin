@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Admin from './App/admin/Admin.jsx';
+import Admin from './app.jsx';
 
 import Login from './pages/login.jsx';
 import Register from './pages/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
 
-import Unauthorized from './pages/Unauthorized.jsx';
+import Unauthorized from './pages/unauthorized.jsx';
 import NotFound from './notFound.jsx';
 
 import Users from './pages/users.jsx';
@@ -18,7 +18,7 @@ import Products from './pages/products.jsx';
 import Sellers from './pages/sellers.jsx';
 import Reports from './pages/reports.jsx';
 import Subscriptions from './pages/subscriptions.jsx';
-import KycVerification from './pages/KycVerification.jsx';
+import KycVerification from './pages/kycVerification.jsx';
 
 import { AuthProvider } from './context/AuthProvider.jsx';
 import { ProductProvider } from './context/ProductProvider.jsx';
@@ -82,35 +82,35 @@ const AppRoutes = () => (
 
     {/* Protected Routes */}
     <Route element={<PersistLogin />}>
-      
-   
 
-      
-   
 
-      
+
+
+
+
+
 
       {/* Nested Routes for Authorization */}
-      
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/" element={<Admin />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/users" element={<Users />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/products" element={<Products />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/subscriptions" element={<Subscriptions />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/sellers" element={<Sellers />} />
       </Route>
-      <Route element={<RequireAuth allowedRoles={[ ROLES.Modarator, ROLES.Admin]} />}>
+      <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/reports" element={<Reports />} />
       </Route>
-  
+
       <Route element={<RequireAuth allowedRoles={[ROLES.Modarator, ROLES.Admin]} />}>
         <Route path="/kyc" element={<KycVerification />} />
       </Route>
@@ -118,34 +118,34 @@ const AppRoutes = () => (
   </Routes>
 );
 
-ReactDOM.createRoot(document.getElementById('root')).render( 
-    <SeoProvider>
-      <AuthProvider>
-        <ProductProvider>       
-          <SearchProvider>
-            <AccessoriesProvider>
-              <SellerProvider>
-                <BlogProvider>
-                  <Router>
-                    <AppRoutes />
-                    <ToastContainer
-                      position="top-right"
-                      autoClose={5000}
-                      hideProgressBar={false}
-                      newestOnTop
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                      theme="light"
-                    />
-                  </Router>
-                </BlogProvider>
-              </SellerProvider>
-            </AccessoriesProvider>
-          </SearchProvider>
-        </ProductProvider>
-      </AuthProvider>
-    </SeoProvider>  
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <SeoProvider>
+    <AuthProvider>
+      <ProductProvider>
+        <SearchProvider>
+          <AccessoriesProvider>
+            <SellerProvider>
+              <BlogProvider>
+                <Router>
+                  <AppRoutes />
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                  />
+                </Router>
+              </BlogProvider>
+            </SellerProvider>
+          </AccessoriesProvider>
+        </SearchProvider>
+      </ProductProvider>
+    </AuthProvider>
+  </SeoProvider>
 );
