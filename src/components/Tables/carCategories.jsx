@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -99,23 +99,21 @@ const CarCategories = () => {
                     Total Inventory: {getTotalCount()}
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handleViewChange('categories')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            viewType === 'categories' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${viewType === 'categories'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Categories
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleViewChange('models')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            viewType === 'models' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${viewType === 'models'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Top Models
                     </button>
@@ -155,8 +153,8 @@ const CarCategories = () => {
                             <div className="grid grid-cols-1 gap-4 p-4">
                                 {categoryData.map((item, index) => (
                                     <div key={index} className="flex items-center">
-                                        <div 
-                                            className="w-4 h-4 rounded-full mr-2" 
+                                        <div
+                                            className="w-4 h-4 rounded-full mr-2"
                                             style={{ backgroundColor: COLORS[index % COLORS.length] }}
                                         ></div>
                                         <div className="flex-1">
@@ -165,9 +163,9 @@ const CarCategories = () => {
                                                 <span className="text-sm">{item.value} ({item.percentage}%)</span>
                                             </div>
                                             <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div 
-                                                    className="h-2 rounded-full" 
-                                                    style={{ 
+                                                <div
+                                                    className="h-2 rounded-full"
+                                                    style={{
                                                         width: `${item.percentage}%`,
                                                         backgroundColor: COLORS[index % COLORS.length]
                                                     }}

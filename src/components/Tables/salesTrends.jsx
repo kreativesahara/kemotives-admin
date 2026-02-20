@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const SalesTrends = () => {
@@ -50,7 +50,7 @@ const SalesTrends = () => {
                 const date = new Date(now);
                 date.setDate(date.getDate() - (i * 7));
                 data.push({
-                    date: `Week ${10-i}`,
+                    date: `Week ${10 - i}`,
                     sales: Math.floor(Math.random() * 30) + 20,
                     revenue: (Math.random() * 30000000 + 15000000).toFixed(0)
                 });
@@ -104,37 +104,34 @@ const SalesTrends = () => {
         <DashboardSection title="Sales Trends">
             <div className="flex justify-between items-center mb-4">
                 <div className="font-medium">
-                    {timeframe === 'daily' ? 'Last 14 Days' : 
-                     timeframe === 'weekly' ? 'Last 10 Weeks' : 'Last 12 Months'}
+                    {timeframe === 'daily' ? 'Last 14 Days' :
+                        timeframe === 'weekly' ? 'Last 10 Weeks' : 'Last 12 Months'}
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handleTimeframeChange('daily')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            timeframe === 'daily' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${timeframe === 'daily'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Daily
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleTimeframeChange('weekly')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            timeframe === 'weekly' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${timeframe === 'weekly'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Weekly
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleTimeframeChange('monthly')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            timeframe === 'monthly' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${timeframe === 'monthly'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Monthly
                     </button>

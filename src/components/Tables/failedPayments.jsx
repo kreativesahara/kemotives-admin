@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 
 const FailedPayments = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -34,22 +34,22 @@ const FailedPayments = () => {
         const paymentTypes = ['subscription_renewal', 'listing_payment', 'premium_feature', 'subscription_initial'];
         const statuses = ['pending', 'contacted', 'resolved', 'escalated'];
         const reasons = [
-            'Insufficient funds', 
-            'Card expired', 
-            'Transaction declined by bank', 
+            'Insufficient funds',
+            'Card expired',
+            'Transaction declined by bank',
             'MPesa timeout',
             'Invalid payment details',
             'Gateway error'
         ];
 
         const mockData = [];
-        
+
         // Generate 15 failed payment records
         for (let i = 1; i <= 15; i++) {
             const daysAgo = Math.floor(Math.random() * 7); // 0-6 days ago
             const date = new Date();
             date.setDate(date.getDate() - daysAgo);
-            
+
             mockData.push({
                 id: i,
                 customer: {
@@ -67,7 +67,7 @@ const FailedPayments = () => {
                 notes: daysAgo > 3 && Math.random() > 0.5 ? "Customer will try again next week" : "",
             });
         }
-        
+
         return mockData;
     };
 
@@ -100,7 +100,7 @@ const FailedPayments = () => {
             .filter(payment => filterType === 'all' || payment.paymentType === filterType)
             .sort((a, b) => {
                 let compareA, compareB;
-                
+
                 // Determine what to compare based on sortBy
                 if (sortBy === 'date') {
                     compareA = new Date(a.failureDate).getTime();
@@ -115,7 +115,7 @@ const FailedPayments = () => {
                     compareA = a[sortBy];
                     compareB = b[sortBy];
                 }
-                
+
                 // Sort based on order
                 if (sortOrder === 'asc') {
                     return compareA > compareB ? 1 : -1;
@@ -154,15 +154,15 @@ const FailedPayments = () => {
     // Handle follow-up action
     const handleFollowUpAction = (id, action) => {
         // In a real app, this would make an API call
-        setFailedPayments(prevPayments => 
-            prevPayments.map(payment => 
-                payment.id === id 
-                    ? { 
-                        ...payment, 
+        setFailedPayments(prevPayments =>
+            prevPayments.map(payment =>
+                payment.id === id
+                    ? {
+                        ...payment,
                         status: action === 'resolve' ? 'resolved' : action === 'escalate' ? 'escalated' : 'contacted',
                         notes: action === 'resolve' ? 'Issue resolved' : payment.notes,
                         followUpDate: action === 'contact' ? new Date() : payment.followUpDate,
-                    } 
+                    }
                     : payment
             )
         );
@@ -195,11 +195,10 @@ const FailedPayments = () => {
                                 <button
                                     key={status}
                                     onClick={() => handleStatusFilterChange(status)}
-                                    className={`px-3 py-1 text-xs rounded-md capitalize ${
-                                        filterStatus === status
+                                    className={`px-3 py-1 text-xs rounded-md capitalize ${filterStatus === status
                                             ? 'bg-blue-500 text-white'
                                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                    }`}
+                                        }`}
                                 >
                                     {status === 'all' ? 'All' : status}
                                 </button>
@@ -213,11 +212,10 @@ const FailedPayments = () => {
                                 <button
                                     key={type}
                                     onClick={() => handleTypeFilterChange(type)}
-                                    className={`px-3 py-1 text-xs rounded-md ${
-                                        filterType === type
+                                    className={`px-3 py-1 text-xs rounded-md ${filterType === type
                                             ? 'bg-blue-500 text-white'
                                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                    }`}
+                                        }`}
                                 >
                                     {type === 'all' ? 'All Types' : formatPaymentType(type)}
                                 </button>
@@ -232,37 +230,37 @@ const FailedPayments = () => {
                     <div className="animate-pulse text-gray-400">Loading failed payments data...</div>
                 </div>
             ) : (
-                
+
                 <div className="overflow-x-auto">
-                        <div className="mt-4 bg-blue-50 rounded-lg p-4">
-                            <h3 className="text-sm font-medium text-blue-800 mb-2">Failed Payment Recovery Stats</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <div className="bg-white rounded-lg p-3 shadow-sm">
-                                    <p className="text-xs text-gray-500">Recovery Rate</p>
-                                    <p className="text-lg font-bold">68.4%</p>
-                                    <p className="text-xs text-green-500">+2.3% vs prev period</p>
-                                </div>
-                                <div className="bg-white rounded-lg p-3 shadow-sm">
-                                    <p className="text-xs text-gray-500">Avg. Time to Resolve</p>
-                                    <p className="text-lg font-bold">2.3 days</p>
-                                    <p className="text-xs text-green-500">-0.5 days</p>
-                                </div>
-                                <div className="bg-white rounded-lg p-3 shadow-sm">
-                                    <p className="text-xs text-gray-500">Top Failure Reason</p>
-                                    <p className="text-lg font-bold">Insufficient funds</p>
-                                    <p className="text-xs text-gray-500">42% of failures</p>
-                                </div>
-                                <div className="bg-white rounded-lg p-3 shadow-sm">
-                                    <p className="text-xs text-gray-500">Est. Lost Revenue</p>
-                                    <p className="text-lg font-bold">KSH 145,500</p>
-                                    <p className="text-xs text-red-500">+12.4% vs prev month</p>
-                                </div>
+                    <div className="mt-4 bg-blue-50 rounded-lg p-4">
+                        <h3 className="text-sm font-medium text-blue-800 mb-2">Failed Payment Recovery Stats</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div className="bg-white rounded-lg p-3 shadow-sm">
+                                <p className="text-xs text-gray-500">Recovery Rate</p>
+                                <p className="text-lg font-bold">68.4%</p>
+                                <p className="text-xs text-green-500">+2.3% vs prev period</p>
+                            </div>
+                            <div className="bg-white rounded-lg p-3 shadow-sm">
+                                <p className="text-xs text-gray-500">Avg. Time to Resolve</p>
+                                <p className="text-lg font-bold">2.3 days</p>
+                                <p className="text-xs text-green-500">-0.5 days</p>
+                            </div>
+                            <div className="bg-white rounded-lg p-3 shadow-sm">
+                                <p className="text-xs text-gray-500">Top Failure Reason</p>
+                                <p className="text-lg font-bold">Insufficient funds</p>
+                                <p className="text-xs text-gray-500">42% of failures</p>
+                            </div>
+                            <div className="bg-white rounded-lg p-3 shadow-sm">
+                                <p className="text-xs text-gray-500">Est. Lost Revenue</p>
+                                <p className="text-lg font-bold">KSH 145,500</p>
+                                <p className="text-xs text-red-500">+12.4% vs prev month</p>
                             </div>
                         </div>
+                    </div>
                     <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg">
                         <thead className="bg-gray-50">
                             <tr>
-                                <th 
+                                <th
                                     className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                     onClick={() => handleSortChange('customer')}
                                 >
@@ -273,7 +271,7 @@ const FailedPayments = () => {
                                         )}
                                     </div>
                                 </th>
-                                <th 
+                                <th
                                     className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                     onClick={() => handleSortChange('amount')}
                                 >
@@ -284,7 +282,7 @@ const FailedPayments = () => {
                                         )}
                                     </div>
                                 </th>
-                                <th 
+                                <th
                                     className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                     onClick={() => handleSortChange('date')}
                                 >
@@ -381,7 +379,7 @@ const FailedPayments = () => {
                             ))}
                         </tbody>
                     </table>
-                    
+
                     {getFilteredData().length === 0 && (
                         <div className="text-center py-8 text-gray-500">
                             No failed payments match your filters
@@ -389,8 +387,8 @@ const FailedPayments = () => {
                     )}
                 </div>
             )}
-            
-            
+
+
         </DashboardSection>
     );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -66,33 +66,30 @@ const TopModels = () => {
                     Top {topModels.length} selling models this {period}
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('week')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'week' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'week'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Week
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('month')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'month' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'month'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Month
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('quarter')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'quarter' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Quarter
                     </button>

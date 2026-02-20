@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
 const PaymentMetrics = () => {
@@ -47,7 +47,7 @@ const PaymentMetrics = () => {
                 const date = new Date(now);
                 date.setDate(date.getDate() - i);
                 const formattedDate = date.toLocaleDateString('en-US', { weekday: 'short' });
-                
+
                 // Revenue data
                 revenueData.push({
                     date: formattedDate,
@@ -55,7 +55,7 @@ const PaymentMetrics = () => {
                     listings: Math.floor(Math.random() * 20000) + 5000,
                     subscriptions: Math.floor(Math.random() * 30000) + 10000,
                 });
-                
+
                 // Transaction data
                 transactionData.push({
                     date: formattedDate,
@@ -70,20 +70,20 @@ const PaymentMetrics = () => {
                 weekStart.setDate(weekStart.getDate() - (i * 7 + 6));
                 const weekEnd = new Date(now);
                 weekEnd.setDate(weekEnd.getDate() - (i * 7));
-                
+
                 const formattedDate = `${weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekEnd.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-                
+
                 // Revenue data
                 revenueData.push({
-                    date: `Week ${4-i}`,
+                    date: `Week ${4 - i}`,
                     revenue: Math.floor(Math.random() * 2000000) + 500000,
                     listings: Math.floor(Math.random() * 80000) + 30000,
                     subscriptions: Math.floor(Math.random() * 120000) + 50000,
                 });
-                
+
                 // Transaction data
                 transactionData.push({
-                    date: `Week ${4-i}`,
+                    date: `Week ${4 - i}`,
                     transactions: Math.floor(Math.random() * 200) + 100,
                     aov: Math.floor(Math.random() * 15000) + 10000,
                 });
@@ -179,45 +179,41 @@ const PaymentMetrics = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2">
                     <div className="flex space-x-2">
-                        <button 
+                        <button
                             onClick={() => handleViewChange('revenue')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                viewMode === 'revenue' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${viewMode === 'revenue'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Revenue
                         </button>
-                        <button 
+                        <button
                             onClick={() => handleViewChange('transactions')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                viewMode === 'transactions' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${viewMode === 'transactions'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Transactions
                         </button>
                     </div>
                     <div className="flex space-x-2">
-                        <button 
+                        <button
                             onClick={() => handlePeriodChange('week')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                period === 'week' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${period === 'week'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Week
                         </button>
-                        <button 
+                        <button
                             onClick={() => handlePeriodChange('month')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                period === 'month' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${period === 'month'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Month
                         </button>
@@ -244,38 +240,38 @@ const PaymentMetrics = () => {
                                 >
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="date" />
-                                    <YAxis 
-                                        tickFormatter={(value) => 
-                                            value >= 1000000 
-                                                ? `${(value / 1000000).toFixed(1)}M` 
-                                                : value >= 1000 
-                                                    ? `${(value / 1000).toFixed(0)}K` 
+                                    <YAxis
+                                        tickFormatter={(value) =>
+                                            value >= 1000000
+                                                ? `${(value / 1000000).toFixed(1)}M`
+                                                : value >= 1000
+                                                    ? `${(value / 1000).toFixed(0)}K`
                                                     : value
-                                        } 
+                                        }
                                     />
                                     <Tooltip content={<CustomRevenueTooltip />} />
                                     <Legend />
-                                    <Line 
-                                        type="monotone" 
-                                        dataKey="revenue" 
-                                        name="Total Revenue" 
-                                        stroke="#3b82f6" 
-                                        strokeWidth={2} 
-                                        activeDot={{ r: 8 }} 
+                                    <Line
+                                        type="monotone"
+                                        dataKey="revenue"
+                                        name="Total Revenue"
+                                        stroke="#3b82f6"
+                                        strokeWidth={2}
+                                        activeDot={{ r: 8 }}
                                     />
-                                    <Line 
-                                        type="monotone" 
-                                        dataKey="listings" 
-                                        name="Listing Fees" 
-                                        stroke="#10b981" 
-                                        strokeWidth={2} 
+                                    <Line
+                                        type="monotone"
+                                        dataKey="listings"
+                                        name="Listing Fees"
+                                        stroke="#10b981"
+                                        strokeWidth={2}
                                     />
-                                    <Line 
-                                        type="monotone" 
-                                        dataKey="subscriptions" 
-                                        name="Subscription Revenue" 
-                                        stroke="#8b5cf6" 
-                                        strokeWidth={2} 
+                                    <Line
+                                        type="monotone"
+                                        dataKey="subscriptions"
+                                        name="Subscription Revenue"
+                                        stroke="#8b5cf6"
+                                        strokeWidth={2}
                                     />
                                 </LineChart>
                             ) : (
@@ -286,28 +282,28 @@ const PaymentMetrics = () => {
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis dataKey="date" />
                                     <YAxis yAxisId="left" />
-                                    <YAxis 
-                                        yAxisId="right" 
-                                        orientation="right" 
-                                        tickFormatter={(value) => 
-                                            value >= 1000 
-                                                ? `${(value / 1000).toFixed(0)}K` 
+                                    <YAxis
+                                        yAxisId="right"
+                                        orientation="right"
+                                        tickFormatter={(value) =>
+                                            value >= 1000
+                                                ? `${(value / 1000).toFixed(0)}K`
                                                 : value
-                                        } 
+                                        }
                                     />
                                     <Tooltip content={<CustomTransactionTooltip />} />
                                     <Legend />
-                                    <Bar 
-                                        yAxisId="left" 
-                                        dataKey="transactions" 
-                                        name="Transactions" 
-                                        fill="#3b82f6" 
+                                    <Bar
+                                        yAxisId="left"
+                                        dataKey="transactions"
+                                        name="Transactions"
+                                        fill="#3b82f6"
                                     />
-                                    <Bar 
-                                        yAxisId="right" 
-                                        dataKey="aov" 
-                                        name="Avg. Order Value" 
-                                        fill="#10b981" 
+                                    <Bar
+                                        yAxisId="right"
+                                        dataKey="aov"
+                                        name="Avg. Order Value"
+                                        fill="#10b981"
                                     />
                                 </BarChart>
                             )}
@@ -325,21 +321,21 @@ const PaymentMetrics = () => {
                                         <span>{method.value}%</span>
                                     </div>
                                     <div className="w-full bg-gray-200 rounded-full h-2">
-                                        <div 
-                                            className="h-2 rounded-full" 
-                                            style={{ 
+                                        <div
+                                            className="h-2 rounded-full"
+                                            style={{
                                                 width: `${method.value}%`,
-                                                backgroundColor: 
+                                                backgroundColor:
                                                     method.name === 'MPesa' ? '#3b82f6' :
-                                                    method.name === 'Bank Transfer' ? '#10b981' :
-                                                    method.name === 'Credit Card' ? '#f97316' : '#8b5cf6'
+                                                        method.name === 'Bank Transfer' ? '#10b981' :
+                                                            method.name === 'Credit Card' ? '#f97316' : '#8b5cf6'
                                             }}
                                         ></div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        
+
                         {/* Additional Stats Cards */}
                         <div className="grid grid-cols-2 gap-4 mt-8">
                             <div className="p-3 bg-gray-50 rounded-lg">

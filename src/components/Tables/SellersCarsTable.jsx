@@ -11,12 +11,12 @@ const LoadingSpinner = () => (
 );
 
 const SellersCarsTable = ({
-  products, 
-  isLoading, 
-  error, 
-  sortConfig, 
-  setSortConfig, 
-  currentPage, 
+  products,
+  isLoading,
+  error,
+  sortConfig,
+  setSortConfig,
+  currentPage,
   setCurrentPage,
   openDeleteModal,
   itemsPerPage, //controlled in the app.jsx file
@@ -76,14 +76,14 @@ const SellersCarsTable = ({
 
     // Calculate days since last update
     const daysSinceUpdate = updatedAt ? Math.floor((new Date() - new Date(updatedAt)) / (1000 * 60 * 60 * 24)) : 0;
-    
+
     // New status value
     const newStatus = currentStatus === "true" ? "false" : "true";
-    
+
     // If activating an inactive listing, show confirmation dialog
     if (newStatus === "true") {
       const cyclesRemaining = 4 - cycleCount;
-      
+
       // Get confirmation before reactivating
       const confirmed = await showConfirm(
         "Reactivate Listing",
@@ -93,23 +93,23 @@ const SellersCarsTable = ({
         "Yes, Reactivate",
         "Cancel"
       );
-      
+
       if (!confirmed) return;
     }
 
     try {
       setTogglingIds(prev => [...prev, id]);
-      
+
       const response = await axiosPrivate.patch(`/api/product/toggle/${id}`, {
         isActive: newStatus
       });
-      
+
       if (response.status === 200) {
         showSuccess(`Listing ${newStatus === "true" ? "activated" : "deactivated"} successfully.`);
-        
+
         // Find the product and update its status
         const updatedProduct = products.find(product => product.id === id);
-        
+
         if (updatedProduct && onProductUpdate) {
           const newProduct = {
             ...updatedProduct,
@@ -117,14 +117,14 @@ const SellersCarsTable = ({
             status: newStatus === "true" ? "active" : "inactive",
             updatedAt: new Date().toISOString()
           };
-          
+
           // Call the provided update function
           onProductUpdate(newProduct);
         }
       }
     } catch (error) {
       console.error("Error toggling product status:", error);
-      
+
       // Provide more specific error messages based on the error
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -156,12 +156,12 @@ const SellersCarsTable = ({
   // Format updatedAt to a readable date with days ago
   const formatUpdatedAt = (updatedAt) => {
     if (!updatedAt) return "Unknown";
-    
+
     const date = new Date(updatedAt);
     const now = new Date();
     const diffTime = Math.abs(now - date);
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    
+
     if (diffDays === 0) return "Today";
     if (diffDays === 1) return "Yesterday";
     return `${diffDays} days ago`;
@@ -337,13 +337,12 @@ const SellersCarsTable = ({
                       </div>
                     </td>
                     <td className="px-4 py-4 text-center">
-                      <span className={`inline-block px-2 py-1 rounded-full text-xs ${
-                        vehicle.cycleCount >= 4 
-                          ? 'bg-red-100 text-red-800' 
+                      <span className={`inline-block px-2 py-1 rounded-full text-xs ${vehicle.cycleCount >= 4
+                          ? 'bg-red-100 text-red-800'
                           : vehicle.cycleCount >= 2
                             ? 'bg-yellow-100 text-yellow-800'
                             : 'bg-gray-100 text-gray-800'
-                      }`}>
+                        }`}>
                         {vehicle.cycleCount || 0}/4
                       </span>
                     </td>
@@ -405,8 +404,8 @@ const SellersCarsTable = ({
                 key={i + 1}
                 onClick={() => setCurrentPage(i + 1)}
                 className={`px-3 py-1 rounded-md ${currentPage === i + 1
-                    ? 'bg-blue-500 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-blue-500 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
               >
                 {i + 1}
@@ -422,7 +421,7 @@ const SellersCarsTable = ({
           </div>
         </div>
       )}
-      
+
       {/* Delete Confirmation Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

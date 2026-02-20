@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Badge from "../../utils/badges";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import LoadingSpinner from "../../utils/loadingspinner";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 
@@ -28,53 +28,53 @@ const RecentSubscriptionPayments = () => {
       } catch (err) {
         console.error('Failed to fetch subscription payments:', err);
         if (isMounted) {
-        //   setError('Unable to load subscription payments. Showing fallback data.');
-            setPayments([
-                {
-                    id: 1,
-                    user: { firstname: 'Alice', lastname: 'Smith', email: 'alice@example.com' },
-                    subscription: { tier: 'Free', name: 'Starter', period: '/month' },
-                    amount: 0.00,
-                    currency: 'KES',
-                    paymentMethod: 'N/A',
-                    txnId: 'FREE_PLAN',
-                    status: 'successful',
-                    createdAt: '2025-04-01T08:30:00Z'
-                },
-                {
-                    id: 2,
-                    user: { firstname: 'Bob', lastname: 'Johnson', email: 'bob@example.com' },
-                    subscription: { tier: 'Limited', name: 'Growth', period: '/month' },
-                    amount: 5970.00,
-                    currency: 'KES',
-                    paymentMethod: 'MPesa',
-                    txnId: 'MPESA12345',
-                    status: 'pending',
-                    createdAt: '2025-04-15T10:00:00Z'
-                },
-                {
-                    id: 3,
-                    user: { firstname: 'Carol', lastname: 'Ngugi', email: 'carol@example.com' },
-                    subscription: { tier: 'Premium', name: 'Enterprise', period: '/month' },
-                    amount: 15880.00,
-                    currency: 'KES',
-                    paymentMethod: 'Stripe',
-                    txnId: 'STRIPE56789',
-                    status: 'successful',
-                    createdAt: '2025-04-17T12:15:00Z'
-                },
-                {
-                    id: 4,
-                    user: { firstname: 'Daniel', lastname: 'Otieno', email: 'daniel@example.com' },
-                    subscription: { tier: 'Limited', name: 'Growth', period: '/month' },
-                    amount: 5970.00,
-                    currency: 'KES',
-                    paymentMethod: 'PayPal',
-                    txnId: 'PAYPAL33221',
-                    status: 'failed',
-                    createdAt: '2025-04-20T09:45:00Z'
-                },
-            ]);
+          //   setError('Unable to load subscription payments. Showing fallback data.');
+          setPayments([
+            {
+              id: 1,
+              user: { firstname: 'Alice', lastname: 'Smith', email: 'alice@example.com' },
+              subscription: { tier: 'Free', name: 'Starter', period: '/month' },
+              amount: 0.00,
+              currency: 'KES',
+              paymentMethod: 'N/A',
+              txnId: 'FREE_PLAN',
+              status: 'successful',
+              createdAt: '2025-04-01T08:30:00Z'
+            },
+            {
+              id: 2,
+              user: { firstname: 'Bob', lastname: 'Johnson', email: 'bob@example.com' },
+              subscription: { tier: 'Limited', name: 'Growth', period: '/month' },
+              amount: 5970.00,
+              currency: 'KES',
+              paymentMethod: 'MPesa',
+              txnId: 'MPESA12345',
+              status: 'pending',
+              createdAt: '2025-04-15T10:00:00Z'
+            },
+            {
+              id: 3,
+              user: { firstname: 'Carol', lastname: 'Ngugi', email: 'carol@example.com' },
+              subscription: { tier: 'Premium', name: 'Enterprise', period: '/month' },
+              amount: 15880.00,
+              currency: 'KES',
+              paymentMethod: 'Stripe',
+              txnId: 'STRIPE56789',
+              status: 'successful',
+              createdAt: '2025-04-17T12:15:00Z'
+            },
+            {
+              id: 4,
+              user: { firstname: 'Daniel', lastname: 'Otieno', email: 'daniel@example.com' },
+              subscription: { tier: 'Limited', name: 'Growth', period: '/month' },
+              amount: 5970.00,
+              currency: 'KES',
+              paymentMethod: 'PayPal',
+              txnId: 'PAYPAL33221',
+              status: 'failed',
+              createdAt: '2025-04-20T09:45:00Z'
+            },
+          ]);
         }
       } finally {
         if (isMounted) setIsLoading(false);

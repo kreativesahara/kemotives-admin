@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const TopSellers = () => {
@@ -24,7 +24,7 @@ const TopSellers = () => {
                 // setTopSellersByValuation(response.data.byValuation);
                 // setSoldItems(response.data.soldItems);
                 // setHighSubscriptions(response.data.highSubscriptions);
-                
+
                 // Mock data for development
                 setTopSellersByViews([
                     { name: 'John Doe', views: 4250, listings: 15 },
@@ -33,7 +33,7 @@ const TopSellers = () => {
                     { name: 'Sarah Williams', views: 3210, listings: 10 },
                     { name: 'Robert Brown', views: 2890, listings: 7 },
                 ]);
-                
+
                 setTopSellersByValuation([
                     { name: 'Sarah Williams', valuation: 425000, items: 10 },
                     { name: 'John Doe', valuation: 398000, items: 15 },
@@ -41,7 +41,7 @@ const TopSellers = () => {
                     { name: 'Jane Smith', valuation: 320000, items: 12 },
                     { name: 'Mike Johnson', valuation: 280000, items: 8 },
                 ]);
-                
+
                 setSoldItems([
                     { name: 'John Doe', sold: 8, revenue: 245000 },
                     { name: 'Jane Smith', sold: 6, revenue: 210000 },
@@ -49,7 +49,7 @@ const TopSellers = () => {
                     { name: 'Mike Johnson', sold: 4, revenue: 160000 },
                     { name: 'Sarah Williams', sold: 4, revenue: 150000 },
                 ]);
-                
+
                 setHighSubscriptions([
                     { name: 'John Doe', months: 12, plan: 'Premium' },
                     { name: 'Jane Smith', months: 9, plan: 'Premium' },
@@ -57,7 +57,7 @@ const TopSellers = () => {
                     { name: 'Sarah Williams', months: 6, plan: 'Premium' },
                     { name: 'Robert Brown', months: 6, plan: 'Business' },
                 ]);
-                
+
             } catch (error) {
                 console.error('Failed to fetch top sellers data:', error);
             } finally {
@@ -194,25 +194,25 @@ const TopSellers = () => {
                 </div>
                 <div className="flex gap-2 flex-wrap">
                     <div className="flex space-x-2">
-                        <button 
+                        <button
                             className={`px-3 py-1 text-sm rounded-md ${activeTab === "views" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                             onClick={() => handleTabChange("views")}
                         >
                             By Views
                         </button>
-                        <button 
+                        <button
                             className={`px-3 py-1 text-sm rounded-md ${activeTab === "valuation" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                             onClick={() => handleTabChange("valuation")}
                         >
                             By Valuation
                         </button>
-                        <button 
+                        <button
                             className={`px-3 py-1 text-sm rounded-md ${activeTab === "sold" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                             onClick={() => handleTabChange("sold")}
                         >
                             Sold Items
                         </button>
-                        <button 
+                        <button
                             className={`px-3 py-1 text-sm rounded-md ${activeTab === "subscriptions" ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
                             onClick={() => handleTabChange("subscriptions")}
                         >
@@ -220,33 +220,30 @@ const TopSellers = () => {
                         </button>
                     </div>
                     <div className="flex space-x-2 ml-auto">
-                        <button 
+                        <button
                             onClick={() => handlePeriodChange('week')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                period === 'week' 
-                                    ? 'bg-purple-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${period === 'week'
+                                    ? 'bg-purple-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Week
                         </button>
-                        <button 
+                        <button
                             onClick={() => handlePeriodChange('month')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                period === 'month' 
-                                    ? 'bg-purple-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${period === 'month'
+                                    ? 'bg-purple-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Month
                         </button>
-                        <button 
+                        <button
                             onClick={() => handlePeriodChange('quarter')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                period === 'quarter' 
-                                    ? 'bg-purple-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
+                                    ? 'bg-purple-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Quarter
                         </button>

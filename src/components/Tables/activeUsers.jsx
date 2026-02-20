@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
@@ -112,23 +112,21 @@ const ActiveUsers = () => {
                     )}
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('week')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'week' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'week'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Week
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('month')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'month' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'month'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Month
                     </button>
@@ -152,23 +150,23 @@ const ActiveUsers = () => {
                                 <YAxis />
                                 <Tooltip content={<CustomTooltip />} />
                                 <Legend />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="daily" 
-                                    name="Daily Active Users" 
-                                    stackId="1" 
-                                    stroke="#3b82f6" 
-                                    fill="#3b82f6" 
-                                    fillOpacity={0.6} 
+                                <Area
+                                    type="monotone"
+                                    dataKey="daily"
+                                    name="Daily Active Users"
+                                    stackId="1"
+                                    stroke="#3b82f6"
+                                    fill="#3b82f6"
+                                    fillOpacity={0.6}
                                 />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="returning" 
-                                    name="Returning Users" 
-                                    stackId="2" 
-                                    stroke="#10b981" 
-                                    fill="#10b981" 
-                                    fillOpacity={0.6} 
+                                <Area
+                                    type="monotone"
+                                    dataKey="returning"
+                                    name="Returning Users"
+                                    stackId="2"
+                                    stroke="#10b981"
+                                    fill="#10b981"
+                                    fillOpacity={0.6}
                                 />
                             </AreaChart>
                         </ResponsiveContainer>

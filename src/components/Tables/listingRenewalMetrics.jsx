@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 
 const COLORS = ['#3b82f6', '#10b981', '#f97316', '#8b5cf6', '#ef4444', '#06b6d4'];
@@ -51,7 +51,7 @@ const ListingRenewalMetrics = () => {
             const previousRenewals = Math.floor(Math.random() * 4);
             const category = ['SUV', 'Sedan', 'Hatchback', 'Truck', 'Luxury'][Math.floor(Math.random() * 5)];
             const fee = Math.floor(Math.random() * 5000) + 3000;
-            
+
             return {
                 id: 10025 + index,
                 title: `Toyota ${['Camry', 'Corolla', 'RAV4', 'Hilux', 'Land Cruiser'][index]} ${2018 + index}`,
@@ -93,7 +93,7 @@ const ListingRenewalMetrics = () => {
         // Renewal trend data for line chart
         const renewalTrend = [];
         const numberOfPoints = timeframe === 'month' ? 30 : timeframe === 'quarter' ? 12 : 6;
-        
+
         for (let i = 0; i < numberOfPoints; i++) {
             const date = new Date();
             if (timeframe === 'month') {
@@ -138,7 +138,7 @@ const ListingRenewalMetrics = () => {
     // Get sorted items
     const getSortedItems = (items) => {
         if (!sortConfig.key) return items;
-        
+
         return [...items].sort((a, b) => {
             if (a[sortConfig.key] < b[sortConfig.key]) {
                 return sortConfig.direction === 'ascending' ? -1 : 1;
@@ -234,55 +234,50 @@ const ListingRenewalMetrics = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2">
                     <div className="flex space-x-2">
-                        <button 
+                        <button
                             onClick={() => handleViewChange('rate')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                viewMode === 'rate' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${viewMode === 'rate'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Renewal Rate
                         </button>
-                        <button 
+                        <button
                             onClick={() => handleViewChange('distribution')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                viewMode === 'distribution' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${viewMode === 'distribution'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Distribution
                         </button>
                     </div>
                     <div className="flex space-x-2">
-                        <button 
+                        <button
                             onClick={() => handleTimeframeChange('month')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                timeframe === 'month' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${timeframe === 'month'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Month
                         </button>
-                        <button 
+                        <button
                             onClick={() => handleTimeframeChange('quarter')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                timeframe === 'quarter' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${timeframe === 'quarter'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             Quarter
                         </button>
-                        <button 
+                        <button
                             onClick={() => handleTimeframeChange('halfyear')}
-                            className={`px-3 py-1 text-sm rounded-md ${
-                                timeframe === 'halfyear' 
-                                    ? 'bg-blue-500 text-white' 
+                            className={`px-3 py-1 text-sm rounded-md ${timeframe === 'halfyear'
+                                    ? 'bg-blue-500 text-white'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                            }`}
+                                }`}
                         >
                             6 Months
                         </button>
@@ -313,30 +308,30 @@ const ListingRenewalMetrics = () => {
                                     <YAxis yAxisId="right" orientation="right" />
                                     <Tooltip content={<CustomRateTooltip />} />
                                     <Legend />
-                                    <Line 
+                                    <Line
                                         yAxisId="left"
-                                        type="monotone" 
-                                        dataKey="renewalRate" 
-                                        name="Renewal Rate (%)" 
-                                        stroke="#3b82f6" 
-                                        strokeWidth={2} 
-                                        activeDot={{ r: 8 }} 
+                                        type="monotone"
+                                        dataKey="renewalRate"
+                                        name="Renewal Rate (%)"
+                                        stroke="#3b82f6"
+                                        strokeWidth={2}
+                                        activeDot={{ r: 8 }}
                                     />
-                                    <Line 
+                                    <Line
                                         yAxisId="right"
-                                        type="monotone" 
-                                        dataKey="expirations" 
-                                        name="Expirations" 
-                                        stroke="#10b981" 
-                                        strokeWidth={2} 
+                                        type="monotone"
+                                        dataKey="expirations"
+                                        name="Expirations"
+                                        stroke="#10b981"
+                                        strokeWidth={2}
                                     />
-                                    <Line 
+                                    <Line
                                         yAxisId="right"
-                                        type="monotone" 
-                                        dataKey="renewals" 
-                                        name="Renewals" 
-                                        stroke="#8b5cf6" 
-                                        strokeWidth={2} 
+                                        type="monotone"
+                                        dataKey="renewals"
+                                        name="Renewals"
+                                        stroke="#8b5cf6"
+                                        strokeWidth={2}
                                     />
                                 </LineChart>
                             ) : (
@@ -373,10 +368,10 @@ const ListingRenewalMetrics = () => {
                                 <YAxis dataKey="name" type="category" width={80} />
                                 <Tooltip content={<CustomCategoryTooltip />} />
                                 <Legend />
-                                <Bar 
-                                    dataKey="renewalRate" 
-                                    name="Renewal Rate (%)" 
-                                    fill="#3b82f6" 
+                                <Bar
+                                    dataKey="renewalRate"
+                                    name="Renewal Rate (%)"
+                                    fill="#3b82f6"
                                     radius={[0, 4, 4, 0]}
                                 />
                             </BarChart>
@@ -417,31 +412,31 @@ const ListingRenewalMetrics = () => {
                         <table className="min-w-full divide-y divide-gray-200">
                             <thead className="bg-gray-50">
                                 <tr>
-                                    <th 
+                                    <th
                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                                         onClick={() => requestSort('title')}
                                     >
                                         Listing {getSortIndicator('title')}
                                     </th>
-                                    <th 
+                                    <th
                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                                         onClick={() => requestSort('category')}
                                     >
                                         Category {getSortIndicator('category')}
                                     </th>
-                                    <th 
+                                    <th
                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                                         onClick={() => requestSort('daysLeft')}
                                     >
                                         Expires In {getSortIndicator('daysLeft')}
                                     </th>
-                                    <th 
+                                    <th
                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                                         onClick={() => requestSort('previousRenewals')}
                                     >
                                         Previous Renewals {getSortIndicator('previousRenewals')}
                                     </th>
-                                    <th 
+                                    <th
                                         className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                                         onClick={() => requestSort('fee')}
                                     >

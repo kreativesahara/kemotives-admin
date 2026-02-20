@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Badge from "../../utils/badges";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 //import LoadingSpinner from "../utils/loadingspinner";
 const RecentProducts = () => {
@@ -77,25 +77,25 @@ const RecentProducts = () => {
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead>
                         <tr className="border-b">
-                            <th 
+                            <th
                                 className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                 onClick={() => requestSort('title')}
                             >
                                 Title{getSortIndicator('title')}
                             </th>
-                            <th 
+                            <th
                                 className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                 onClick={() => requestSort('price')}
                             >
                                 Price{getSortIndicator('price')}
                             </th>
-                            <th 
+                            <th
                                 className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                 onClick={() => requestSort('status')}
                             >
                                 Status{getSortIndicator('status')}
                             </th>
-                            <th 
+                            <th
                                 className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
                                 onClick={() => requestSort('seller')}
                             >

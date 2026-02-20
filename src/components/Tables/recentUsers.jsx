@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import Badge from "../../utils/badges";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 //import LoadingSpinner from "../utils/loadingspinner";
 const RecentUsers = () => {
@@ -61,7 +61,7 @@ const RecentUsers = () => {
                 </tbody>
             </table>
         </div>
-        <ConditionalViewAll to="/users" entityName="users" />
+            <ConditionalViewAll to="/users" entityName="users" />
         </DashboardSection>
     );
 };

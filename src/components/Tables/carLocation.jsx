@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import ConditionalViewAll from "../../utils/conditionalViewAll";
 
 const CarLocation = () => {
@@ -91,23 +91,21 @@ const CarLocation = () => {
                     {viewMode === 'inventory' ? 'Inventory' : 'Sales'} by Location: {getTotalCount()} total
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handleModeChange('inventory')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            viewMode === 'inventory' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${viewMode === 'inventory'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Inventory
                     </button>
-                    <button 
+                    <button
                         onClick={() => handleModeChange('sales')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            viewMode === 'sales' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${viewMode === 'sales'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Sales
                     </button>
@@ -133,8 +131,8 @@ const CarLocation = () => {
                                             <span className="text-sm text-gray-600">{location.count}</span>
                                         </div>
                                         <div className="w-full bg-gray-200 h-1.5 mt-1 rounded-full overflow-hidden">
-                                            <div 
-                                                className={`h-full ${getHeatmapColor(location.percentage)}`} 
+                                            <div
+                                                className={`h-full ${getHeatmapColor(location.percentage)}`}
                                                 style={{ width: `${Math.min(100, location.percentage * 2)}%` }}
                                             ></div>
                                         </div>
@@ -153,8 +151,8 @@ const CarLocation = () => {
                                     Map visualization would go here.
                                 </div>
                                 <div className="text-sm text-gray-400">
-                                    In a production environment, this would integrate with a mapping library 
-                                    like react-leaflet or google-maps-react to display a heatmap of 
+                                    In a production environment, this would integrate with a mapping library
+                                    like react-leaflet or google-maps-react to display a heatmap of
                                     {viewMode === 'inventory' ? ' inventory' : ' sales'} data.
                                 </div>
                             </div>
@@ -195,8 +193,8 @@ const CarLocation = () => {
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                                                    <div 
-                                                        className={`h-full ${getHeatmapColor(location.percentage)}`} 
+                                                    <div
+                                                        className={`h-full ${getHeatmapColor(location.percentage)}`}
                                                         style={{ width: `${location.percentage}%` }}
                                                     ></div>
                                                 </div>

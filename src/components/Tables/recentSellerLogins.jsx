@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 
 const RecentSellerLogins = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -18,98 +18,98 @@ const RecentSellerLogins = () => {
                 console.error('Failed to fetch seller login data:', error);
                 // Mock data for development
                 const mockSellers = [
-                    { 
-                        id: 1, 
-                        name: 'John Doe', 
+                    {
+                        id: 1,
+                        name: 'John Doe',
                         email: 'john.doe@example.com',
-                        lastLogin: new Date('2023-09-15T10:23:12'), 
+                        lastLogin: new Date('2023-09-15T10:23:12'),
                         status: 'online',
                         subscription: 'Premium',
                         totalListings: 15
                     },
-                    { 
-                        id: 2, 
-                        name: 'Sarah Williams', 
+                    {
+                        id: 2,
+                        name: 'Sarah Williams',
                         email: 'sarah.williams@example.com',
-                        lastLogin: new Date('2023-09-15T09:15:45'), 
+                        lastLogin: new Date('2023-09-15T09:15:45'),
                         status: 'away',
                         subscription: 'Premium',
                         totalListings: 10
                     },
-                    { 
-                        id: 3, 
-                        name: 'Jane Smith', 
+                    {
+                        id: 3,
+                        name: 'Jane Smith',
                         email: 'jane.smith@example.com',
-                        lastLogin: new Date('2023-09-14T18:45:22'), 
+                        lastLogin: new Date('2023-09-14T18:45:22'),
                         status: 'offline',
                         subscription: 'Premium',
                         totalListings: 12
                     },
-                    { 
-                        id: 4, 
-                        name: 'Mike Johnson', 
+                    {
+                        id: 4,
+                        name: 'Mike Johnson',
                         email: 'mike.johnson@example.com',
-                        lastLogin: new Date('2023-09-14T15:32:10'), 
+                        lastLogin: new Date('2023-09-14T15:32:10'),
                         status: 'offline',
                         subscription: 'Business',
                         totalListings: 8
                     },
-                    { 
-                        id: 5, 
-                        name: 'Robert Brown', 
+                    {
+                        id: 5,
+                        name: 'Robert Brown',
                         email: 'robert.brown@example.com',
-                        lastLogin: new Date('2023-09-13T11:05:33'), 
+                        lastLogin: new Date('2023-09-13T11:05:33'),
                         status: 'offline',
                         subscription: 'Business',
                         totalListings: 7
                     },
-                    { 
-                        id: 6, 
-                        name: 'Alice Cooper', 
+                    {
+                        id: 6,
+                        name: 'Alice Cooper',
                         email: 'alice.cooper@example.com',
-                        lastLogin: new Date('2023-09-12T14:22:18'), 
+                        lastLogin: new Date('2023-09-12T14:22:18'),
                         status: 'offline',
                         subscription: 'Standard',
                         totalListings: 5
                     },
-                    { 
-                        id: 7, 
-                        name: 'David Miller', 
+                    {
+                        id: 7,
+                        name: 'David Miller',
                         email: 'david.miller@example.com',
-                        lastLogin: new Date('2023-09-10T09:45:52'), 
+                        lastLogin: new Date('2023-09-10T09:45:52'),
                         status: 'offline',
                         subscription: 'Premium',
                         totalListings: 9
                     },
-                    { 
-                        id: 8, 
-                        name: 'Emma Wilson', 
+                    {
+                        id: 8,
+                        name: 'Emma Wilson',
                         email: 'emma.wilson@example.com',
-                        lastLogin: new Date('2023-09-08T16:30:25'), 
+                        lastLogin: new Date('2023-09-08T16:30:25'),
                         status: 'offline',
                         subscription: 'Standard',
                         totalListings: 4
                     },
-                    { 
-                        id: 9, 
-                        name: 'James Taylor', 
+                    {
+                        id: 9,
+                        name: 'James Taylor',
                         email: 'james.taylor@example.com',
-                        lastLogin: new Date('2023-09-05T10:12:40'), 
+                        lastLogin: new Date('2023-09-05T10:12:40'),
                         status: 'offline',
                         subscription: 'Business',
                         totalListings: 6
                     },
-                    { 
-                        id: 10, 
-                        name: 'Olivia Green', 
+                    {
+                        id: 10,
+                        name: 'Olivia Green',
                         email: 'olivia.green@example.com',
-                        lastLogin: new Date('2023-09-01T08:55:15'), 
+                        lastLogin: new Date('2023-09-01T08:55:15'),
                         status: 'offline',
                         subscription: 'Standard',
                         totalListings: 3
                     }
                 ];
-                
+
                 // Sort by most recent login
                 mockSellers.sort((a, b) => b.lastLogin - a.lastLogin);
                 setSellers(mockSellers);
@@ -128,16 +128,16 @@ const RecentSellerLogins = () => {
     const formatLastLogin = (dateObj) => {
         const now = new Date();
         const diff = Math.floor((now - dateObj) / 1000); // difference in seconds
-        
+
         if (diff < 60) return 'Just now';
         if (diff < 3600) return `${Math.floor(diff / 60)} minutes ago`;
         if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`;
         if (diff < 604800) return `${Math.floor(diff / 86400)} days ago`;
-        
-        return dateObj.toLocaleDateString('en-US', { 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric' 
+
+        return dateObj.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
         });
     };
 
@@ -174,33 +174,30 @@ const RecentSellerLogins = () => {
                     Sellers by most recent login activity ({sellers.length})
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('week')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'week' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'week'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Week
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('month')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'month' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'month'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Month
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('quarter')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'quarter' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         Quarter
                     </button>

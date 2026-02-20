@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axiosPrivate from "../../api/axios";
-import DashboardSection from "../../App/admin/Tables/dataTable";
+import DashboardSection from "../../dataTable";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const COLORS = ['#3b82f6', '#10b981', '#f97316'];
@@ -45,21 +45,21 @@ const SubscriptionMetrics = () => {
     const generateMockData = (period) => {
         const now = new Date();
         const data = [];
-        
+
         // Determine how many data points based on period
         const dataPoints = period === 'quarter' ? 3 : period === 'halfyear' ? 6 : 12;
-        
+
         for (let i = dataPoints - 1; i >= 0; i--) {
             const date = new Date(now);
             date.setMonth(date.getMonth() - i);
-            
+
             const newSubs = Math.floor(Math.random() * 20) + 15;
             const churnedSubs = Math.floor(Math.random() * 10) + 5;
-            
+
             // Calculate the cumulative total (assuming we started with 50)
             // This is simplified - in real data you'd have actual cumulative values
             const total = 50 + (i === dataPoints - 1 ? 0 : data[0].newSubs - data[0].churnedSubs);
-            
+
             data.unshift({
                 date: date.toLocaleDateString('en-US', { month: 'short', year: '2-digit' }),
                 newSubs: newSubs,
@@ -68,14 +68,14 @@ const SubscriptionMetrics = () => {
                 totalSubs: total + newSubs - churnedSubs
             });
         }
-        
+
         // Subscription distribution by plan
         const subscriptionDistribution = [
             { name: 'Basic', value: 45, count: 124 },
             { name: 'Standard', value: 35, count: 95 },
             { name: 'Premium', value: 20, count: 54 }
         ];
-        
+
         // MRR data
         const mrrData = {
             current: 1250000,
@@ -83,9 +83,9 @@ const SubscriptionMetrics = () => {
             arpu: 15000,
             arr: 15000000
         };
-        
-        return { 
-            subscriptionData: data, 
+
+        return {
+            subscriptionData: data,
             subscriptionDistribution,
             mrrData
         };
@@ -162,33 +162,30 @@ const SubscriptionMetrics = () => {
                     </div>
                 </div>
                 <div className="flex space-x-2">
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('quarter')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'quarter' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'quarter'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         3 Months
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('halfyear')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'halfyear' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'halfyear'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         6 Months
                     </button>
-                    <button 
+                    <button
                         onClick={() => handlePeriodChange('year')}
-                        className={`px-3 py-1 text-sm rounded-md ${
-                            period === 'year' 
-                                ? 'bg-blue-500 text-white' 
+                        className={`px-3 py-1 text-sm rounded-md ${period === 'year'
+                                ? 'bg-blue-500 text-white'
                                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                            }`}
                     >
                         12 Months
                     </button>
@@ -214,37 +211,37 @@ const SubscriptionMetrics = () => {
                                 <YAxis />
                                 <Tooltip content={<CustomTooltip />} />
                                 <Legend />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="newSubs" 
-                                    name="New Subscribers" 
+                                <Area
+                                    type="monotone"
+                                    dataKey="newSubs"
+                                    name="New Subscribers"
                                     stackId="1"
-                                    stroke="#3b82f6" 
-                                    fill="#3b82f6" 
+                                    stroke="#3b82f6"
+                                    fill="#3b82f6"
                                 />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="churnedSubs" 
-                                    name="Churned Subscribers" 
+                                <Area
+                                    type="monotone"
+                                    dataKey="churnedSubs"
+                                    name="Churned Subscribers"
                                     stackId="2"
-                                    stroke="#ef4444" 
-                                    fill="#ef4444" 
+                                    stroke="#ef4444"
+                                    fill="#ef4444"
                                 />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="netGrowth" 
-                                    name="Net Growth" 
+                                <Area
+                                    type="monotone"
+                                    dataKey="netGrowth"
+                                    name="Net Growth"
                                     stackId="3"
-                                    stroke="#10b981" 
-                                    fill="#10b981" 
+                                    stroke="#10b981"
+                                    fill="#10b981"
                                 />
-                                <Area 
-                                    type="monotone" 
-                                    dataKey="totalSubs" 
-                                    name="Total Subscribers" 
+                                <Area
+                                    type="monotone"
+                                    dataKey="totalSubs"
+                                    name="Total Subscribers"
                                     stackId="4"
-                                    stroke="#8b5cf6" 
-                                    fill="#8b5cf6" 
+                                    stroke="#8b5cf6"
+                                    fill="#8b5cf6"
                                 />
                             </AreaChart>
                         </ResponsiveContainer>
@@ -267,9 +264,9 @@ const SubscriptionMetrics = () => {
                                     label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                                 >
                                     {subscriptionDistribution.map((entry, index) => (
-                                        <Cell 
-                                            key={`cell-${index}`} 
-                                            fill={PLAN_COLORS[entry.name] || COLORS[index % COLORS.length]} 
+                                        <Cell
+                                            key={`cell-${index}`}
+                                            fill={PLAN_COLORS[entry.name] || COLORS[index % COLORS.length]}
                                         />
                                     ))}
                                 </Pie>

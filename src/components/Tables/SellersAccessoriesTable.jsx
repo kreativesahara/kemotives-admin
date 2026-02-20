@@ -11,12 +11,12 @@ const LoadingSpinner = () => (
 );
 
 const SellersAccessoriesTable = ({
-  accessories, 
-  isLoading, 
-  error, 
-  sortConfig, 
-  setSortConfig, 
-  currentPage, 
+  accessories,
+  isLoading,
+  error,
+  sortConfig,
+  setSortConfig,
+  currentPage,
   setCurrentPage,
   openDeleteModal,
   itemsPerPage, //controlled in the app.jsx file
@@ -69,14 +69,14 @@ const SellersAccessoriesTable = ({
 
     // Calculate days since last update
     const daysSinceUpdate = updatedAt ? Math.floor((new Date() - new Date(updatedAt)) / (1000 * 60 * 60 * 24)) : 0;
-    
+
     // New status value
     const newStatus = currentStatus === "true" ? "false" : "true";
-    
+
     // If activating an inactive listing, show confirmation dialog
     if (newStatus === "true") {
       const cyclesRemaining = 4 - cycleCount;
-      
+
       // Get confirmation before reactivating
       const confirmed = await showConfirm(
         "Reactivate Listing",
@@ -86,23 +86,23 @@ const SellersAccessoriesTable = ({
         "Yes, Reactivate",
         "Cancel"
       );
-      
+
       if (!confirmed) return;
     }
 
     try {
       setTogglingIds(prev => [...prev, id]);
-      
+
       const response = await axiosPrivate.patch(`/api/accessories/toggle/${id}`, {
         isActive: newStatus
       });
-      
+
       if (response.status === 200) {
         showSuccess(`Accessory ${newStatus === "true" ? "activated" : "deactivated"} successfully.`);
-        
+
         // Find the accessory and update its status
         const updatedAccessory = accessories.find(accessory => accessory.id === id);
-        
+
         if (updatedAccessory && onProductUpdate) {
           const newAccessory = {
             ...updatedAccessory,
@@ -110,14 +110,14 @@ const SellersAccessoriesTable = ({
             status: newStatus === "true" ? "active" : "inactive",
             updatedAt: new Date().toISOString()
           };
-          
+
           // Call the provided update function
           onProductUpdate(newAccessory);
         }
       }
     } catch (error) {
       console.error("Error toggling accessory status:", error);
-      
+
       // Provide more specific error messages based on the error
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -149,12 +149,12 @@ const SellersAccessoriesTable = ({
   // Format updatedAt to a readable date with days ago
   const formatUpdatedAt = (updatedAt) => {
     if (!updatedAt) return "Unknown";
-    
+
     const date = new Date(updatedAt);
     const now = new Date();
     const diffTime = Math.abs(now - date);
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    
+
     if (diffDays === 0) return "Today";
     if (diffDays === 1) return "Yesterday";
     return `${diffDays} days ago`;
@@ -296,7 +296,7 @@ const SellersAccessoriesTable = ({
                     </td>
                     <td className="px-4 py-4">{accessory.category}</td>
                     <td className="px-4 py-4">
-                      {accessory?.stock ? Number(accessory.stock).toLocaleString() : "-"} 
+                      {accessory?.stock ? Number(accessory.stock).toLocaleString() : "-"}
                     </td>
                     <td className="px-4 py-4">
                       KSH {accessory?.price ? Number(accessory.price).toLocaleString() : "-"}
@@ -339,13 +339,12 @@ const SellersAccessoriesTable = ({
                       </div>
                     </td>
                     <td className="px-4 py-4 text-center">
-                      <span className={`inline-block px-2 py-1 rounded-full text-xs ${
-                        accessory.cycleCount >= 4 
-                          ? 'bg-red-100 text-red-800' 
+                      <span className={`inline-block px-2 py-1 rounded-full text-xs ${accessory.cycleCount >= 4
+                          ? 'bg-red-100 text-red-800'
                           : accessory.cycleCount >= 2
                             ? 'bg-yellow-100 text-yellow-800'
                             : 'bg-gray-100 text-gray-800'
-                      }`}>
+                        }`}>
                         {accessory.cycleCount || 0}/4
                       </span>
                     </td>
@@ -387,7 +386,7 @@ const SellersAccessoriesTable = ({
               Showing {((currentPage - 1) * itemsPerPage) + 1} to {Math.min(currentPage * itemsPerPage, paginatedAccessories?.length || 0)} of {accessories?.length || 0} accessories
             </span>
           </div>
-          
+
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
@@ -396,7 +395,7 @@ const SellersAccessoriesTable = ({
             >
               Previous
             </button>
-            
+
             <div className="flex items-center space-x-1">
               {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                 let pageNum;
@@ -409,23 +408,22 @@ const SellersAccessoriesTable = ({
                 } else {
                   pageNum = currentPage - 2 + i;
                 }
-                
+
                 return (
                   <button
                     key={pageNum}
                     onClick={() => setCurrentPage(pageNum)}
-                    className={`px-3 py-1 text-sm font-medium rounded-md ${
-                      currentPage === pageNum
+                    className={`px-3 py-1 text-sm font-medium rounded-md ${currentPage === pageNum
                         ? 'bg-blue-600 text-white'
                         : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
-                    }`}
+                      }`}
                   >
                     {pageNum}
                   </button>
                 );
               })}
             </div>
-            
+
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
