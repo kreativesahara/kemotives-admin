@@ -10,7 +10,7 @@ import Register from './pages/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
 
-import Unauthorized from './pages/unauthorized.jsx';
+import Unauthorized from './pages/unAuthorized.jsx';
 import NotFound from './pages/notFound.jsx';
 
 import Users from './pages/users.jsx';
