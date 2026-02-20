@@ -5,8 +5,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admin from './App/admin/Admin.jsx';
 
-import Login from './App/login.jsx';
-import Register from './App/register.jsx';
+import Login from './pages/login.jsx';
+import Register from './pages/register.jsx';
 import ForgotPassword from './components/forms/forgotPassword.jsx';
 import ResetPassword from './components/forms/resetPassword.jsx';
 
