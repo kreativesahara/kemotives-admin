@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import BasicSearch from './basicSearch';
 import AdvancedSearch from './advancedSearch';
 import useAxiosPrivate from '../../api/useAxiosPrivate';
-import { useSearch } from '../../context/SearchProvider';
-import { useProductContext } from '../../context/ProductProvider';
+import { useSearch } from '../../providers/SearchProvider';
+import { useProductContext } from '../../providers/ProductProvider';
 
 const Search = () => {
   // Shared state from SearchProvider

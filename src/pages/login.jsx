@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import LoginForm from '../components/forms/loginForm';
-import { useSeoContext } from '../providers/SeoProvider';
+import { useSeoContext } from '../providers//SeoProvider';
 
 
 export default function Login() {

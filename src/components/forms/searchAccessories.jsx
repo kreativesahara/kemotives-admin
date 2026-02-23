@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import BasicSearchAccessories from './basicSearchAccessories';
 import AdvancedSearchAccessories from './advancedSearchAccessories';
 import useAxiosPrivate from '../../api/useAxiosPrivate';
-import { useSearch } from '../../context/SearchAccesoriesProvider';
+import { useSearch } from '../../providers/SearchAccesoriesProvider';
 
 const AccessoriesPlaceholder = ({ name }) => (
   <div className="w-full h-full bg-gray-100 flex flex-col items-center justify-center">
-    <svg 
-      viewBox="0 0 24 24" 
+    <svg
+      viewBox="0 0 24 24"
       className="w-16 h-16 text-gray-400 mb-2"
       fill="none"
       stroke="currentColor"
@@ -61,7 +61,7 @@ const SearchAccessories = () => {
         if (Array.isArray(accessories)) {
           const getUniqueValues = (key) =>
             [...new Set(accessories.map(accessory => accessory[key]).filter(Boolean))];
-          
+
           // Set all dropdown options
           setDropdownOptions({
             name: getUniqueValues("name"),
@@ -72,7 +72,7 @@ const SearchAccessories = () => {
             priceMax: getUniqueValues("priceMax"),
             stock: getUniqueValues("stock"),
           });
-          
+
           // Create category-name relationship map
           const categoryToNames = {};
           accessories.forEach(accessory => {
@@ -85,7 +85,7 @@ const SearchAccessories = () => {
               }
             }
           });
-          
+
           setCategoryNameMap(categoryToNames);
         }
       } catch (error) {
@@ -133,7 +133,7 @@ const SearchAccessories = () => {
     setHasSearched(true);
     // Build filter object from context values
     const currentFilters = {
-      name, 
+      name,
       category,
       condition,
       location,
@@ -197,18 +197,18 @@ const SearchAccessories = () => {
           onSubmit={handleSearch}
           onClear={handleClear}
         /> */}
-       {/* : ( */}
-        <BasicSearchAccessories
-          filters={{ name, category, condition, location, priceMin, priceMax, stock }}
-          dropdownOptions={{
-            ...dropdownOptions,
-            categoryNameMap
-          }}
-          onChange={handleChange}
-          onSearch={handleSearch}
-          onClear={handleClear}
-        />
-       {/* )} */}
+      {/* : ( */}
+      <BasicSearchAccessories
+        filters={{ name, category, condition, location, priceMin, priceMax, stock }}
+        dropdownOptions={{
+          ...dropdownOptions,
+          categoryNameMap
+        }}
+        onChange={handleChange}
+        onSearch={handleSearch}
+        onClear={handleClear}
+      />
+      {/* )} */}
 
       {isLoading && (
         <div className="text-center py-8">
@@ -220,14 +220,14 @@ const SearchAccessories = () => {
         <p className="text-center text-red-500 my-4">{error}</p>
       )}
       {(!isLoading && searchResults.length > 0) ? (
-        <section 
-          className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto mt-8" 
+        <section
+          className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto mt-8"
           aria-labelledby="search-results"
         >
           <h2 id="search-results" className="sr-only">Search Results</h2>
-          
+
           {searchResults.map((result) => (
-            <article 
+            <article
               key={result.id}
               className="bg-white border rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
             >
@@ -314,7 +314,7 @@ const SearchAccessories = () => {
       ) : (
         !isLoading && hasSearched && (
           <div className="w-full text-center p-8 bg-gray-50 rounded-lg mt-8">
-          <p className="text-lg text-gray-600">No accessories found matching your criteria</p>
+            <p className="text-lg text-gray-600">No accessories found matching your criteria</p>
             <p className="text-sm text-gray-500 mt-2">Try adjusting your search filters</p>
           </div>
         )

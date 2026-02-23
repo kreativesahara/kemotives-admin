@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react"
 import { showSuccess, showError } from "../../utils/sweetAlert";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useSeoContext } from "../../providers/SeoProvider";
+import { useSeoContext } from "../../providers//SeoProvider";
 
 function ForgotPassword() {
     const { updateSeo } = useSeoContext();

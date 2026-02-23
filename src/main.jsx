@@ -5,14 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { setupSmoothAnchorLinks } from './utils/scrollUtils';
-import { AuthProvider } from './providers/AuthProvider.jsx';
-import { ProductProvider } from './providers/ProductProvider.jsx';
-import { AccessoriesProvider } from './providers/AccessoriesProvider.jsx';
-import { BlogProvider } from './providers/BlogProvider.jsx';
-import { SearchProvider } from './providers/SearchProvider.jsx';
-import { SellerProvider } from './providers/SellerProvider.jsx';
+import { AuthProvider } from './providers//AuthProvider.jsx';
+import { ProductProvider } from './providers//ProductProvider.jsx';
+import { AccessoriesProvider } from './providers//AccessoriesProvider.jsx';
+import { BlogProvider } from './providers//BlogProvider.jsx';
+import { SearchProvider } from './providers//SearchProvider.jsx';
+import { SellerProvider } from './providers//SellerProvider.jsx';
 
-import SeoProvider from './providers/SeoProvider.jsx';
+import SeoProvider from './providers//SeoProvider.jsx';
 import PersistLogin from './authorization/PersistLogin.jsx';
 import RequireAuth from './authorization/RequireAuth.jsx';
 

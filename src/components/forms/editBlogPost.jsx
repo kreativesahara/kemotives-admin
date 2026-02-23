@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAxiosPrivate from '../../api/useAxiosPrivate';
 import { toast } from 'react-toastify';
-import { useSeoContext } from '../../context/SeoProvider';
+import { useSeoContext } from '../../providers/SeoProvider';
 import Layout from '../Layout';
 import RichTextEditor from './RichTextEditor';
 
@@ -129,7 +129,7 @@ export default function EditBlogPost() {
   }
 
   return (
-    <Layout>    
+    <Layout>
       <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4">
         <div className="max-w-[1100px] mx-auto bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
           <form onSubmit={handleSubmit} className="space-y-8">
